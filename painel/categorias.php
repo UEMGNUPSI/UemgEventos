@@ -24,7 +24,7 @@ $link = $objBd->conecta_mysql();
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-custom">
+<nav class="navbar navbar-inverse navbar-custom  navbar-fixed-top">
 	<div class="container">
 
 	<!-- header -->
