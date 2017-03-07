@@ -3,14 +3,20 @@
 
 session_start();
 
-if(!isset($_SESSION['usuario'])){
-	//header("Location: /UemgEventos/index.php");
+if(!isset($_SESSION['usuario']) || $_SESSION['admin'] == false){
+	header("Location: /UemgEventos/index.php");
 }
 
 require_once('../bd.class.php');
 
 $objBd = new bd();
 $link = $objBd->conecta_mysql();
+
+if(!isset($_SESSION['usuario'])){
+	$login = 0;
+}else{
+	$login = 1;
+}
 
 ?>
 
@@ -20,8 +26,6 @@ $link = $objBd->conecta_mysql();
 	<title>Categorias</title>
 
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-	<link rel="icon" href="imagens/mouro.png" type="image/x-icon" />
-	<link rel="stylesheet" type="text/css" href="css/estilo.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-custom  navbar-fixed-top">
@@ -50,9 +54,9 @@ $link = $objBd->conecta_mysql();
 	            
 	            
 	          </ul>
-		<!--ul class="nav navbar-nav navbar-right">
-			<?php if($login != 0){?><li><a href="sair.php">Sair</a></li> <?php } ?>
-		</ul-->
+		<ul class="nav navbar-nav navbar-right">
+			<?php if($login != 0){?><li><a href="/UemgEventos/sair.php">Sair</a></li> <?php } ?>
+		</ul>
 	</div>
 	</div>
 </nav>
