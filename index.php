@@ -1,3 +1,18 @@
+<?php 
+
+
+session_start();
+
+$erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
+
+if(!isset($_SESSION['usuario'])){
+	$login = 0;
+}else{
+	$login = 1;
+}
+
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +21,7 @@
 </head>
 <body>
 <form class="modal fade" id="janela" method="post" action="validar_acesso.php">
-      <div class="modal-dialog">
+      <div class="modal-dialog" id='teste'>
         <div class="modal-content">
           <!-- cabecalho -->
           <div class="modal-header">
@@ -27,7 +42,9 @@
               <label for="senha">Senha</label>
               <input id='senha' type="password" class="form-control red" id="campo_senha" name="senha" maxlength="20"/>
             </div>
+            <?php if($erro == 2){ echo '<font color=#FF0000>Usuario ou senha inválidos</font>'; } ?>
           </div>
+
           <!-- rodape -->
           <div class="modal-footer">
             <!--a href="cadastro.html" class="btn btn-cadastrar" style="float: left;">Cadastrar</a-->

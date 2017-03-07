@@ -25,7 +25,7 @@ if($resultado_id){
 			header("Location: /UemgEventos/painel/eventos.php");
 		}
 	}else{
-		header("Location: login.php?erro=2");
+		header("Location: index.php?erro=2");
 	}
 }else{
 	echo 'Erro na execução da consulta';
