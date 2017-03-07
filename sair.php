@@ -3,6 +3,6 @@ session_start();
 
 unset($_SESSION['usuario']);
 
-header("Location: login.php");
+header("Location: index.php");
 
  ?>
