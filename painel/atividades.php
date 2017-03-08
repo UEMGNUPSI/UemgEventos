@@ -27,7 +27,6 @@ if(!isset($_SESSION['usuario'])){
 	<title>Categorias</title>
 
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-custom navbar-fixed-top">
@@ -59,9 +58,50 @@ if(!isset($_SESSION['usuario'])){
 		<ul class="nav navbar-nav navbar-right">
 			<?php if($login != 0){?><li><a href="/UemgEventos/sair.php">Sair</a></li> <?php } ?>
 		</ul>
+
 	</div>
 	</div>
 </nav>
+
+
+
+
+
+<div class="container">
+	<div class="col-md-12">
+		<h2> Buscar </h2>
+		<div class="col-md-5">
+			<form method="get">
+				<input type="text" name="busca" placeholder="Busca" class="form-control">
+				</div>
+				<div class="col-md-1">
+				<button class="btn btn-success">Buscar</button>
+
+			</form> 
+		</div>
+	</div>
+
+
+       
+<div class="col-md-12">
+	<hr>
+		<div class="col-md-10">
+			<h2>Atividades</h2>
+		</div>
+		<div class="col-md-2">
+			<a href="nova_atividade.php" a class="btn btn-primary" style="margin-top: 20px;">Nova atividade</a>
+		</div>
+
+<div class="col-md-12">
+			<table border="1">
+				<tr>
+					<th>Nome</th>
+					<th>Editar</th>
+					<th>Excluir</th>
+				</tr> 
+
+</div>
+    
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
