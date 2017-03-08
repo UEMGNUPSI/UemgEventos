@@ -6,9 +6,9 @@ session_start();
 $erro = isset($_GET['erro']) ? $_GET['erro'] : 0;
 
 if(!isset($_SESSION['usuario'])){
-	$login = 0;
-}else{
 	$login = 1;
+}else{
+	$login = 0;
 }
 
  ?>
@@ -18,6 +18,7 @@ if(!isset($_SESSION['usuario'])){
 <head>
 	<title></title>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
 </head>
 <body>
 <form class="modal fade" id="janela" method="post" action="validar_acesso.php">
@@ -47,16 +48,48 @@ if(!isset($_SESSION['usuario'])){
 
           <!-- rodape -->
           <div class="modal-footer">
-            <!--a href="cadastro.html" class="btn btn-cadastrar" style="float: left;">Cadastrar</a-->
+            <a href="cadastro.php" class="btn btn-primary" style="float: left;">Cadastrar</a>
+            <button class="btn btn-success" type="submit">Logar</button>
             <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
-            <button class="btn btn-primary" type="submit">Logar</button>
           </div>
 
         </div>
       </div>
     </form>
 
-<a href="#" data-toggle="modal" data-target="#janela">Entrar</a>
+
+<nav class="navbar navbar-inverse navbar-custom  navbar-fixed-top">
+  <div class="container">
+
+  <!-- header -->
+        <div class="navbar-header">
+
+        <!-- botao toggle-->
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barra-navegacao">
+          <span class="sr-only">alternar navegação</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        </div>
+    
+    <div class="collapse navbar-collapse" id="barra-navegacao">
+    <ul class="nav navbar-nav ">
+      <li class="active"><a href="index.php">Home</a></li>
+      <li><a href="atividades.php">Atividades</a></li>
+      <li><a href="eventos.php">Eventos</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    <?php if($login == 0){ echo "<li><a href='sair.php'>Sair</a></li>";}else{ echo "<li><a href='#' data-toggle='modal' data-target='#janela'>Entrar</a></li>"; } ?>
+
+    </ul>
+  </div>
+  </div>
+</nav>
+
+
+
 
 
 

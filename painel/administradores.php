@@ -102,9 +102,9 @@ $resultado_id = mysqli_query($link, $sql);
 		<div class="col-md-12">
 			<table border="1">
 				<tr>
-					<th>Nome</th>
-					<th>Editar</th>
-					<th>Excluir</th>
+					<th class="nome">Nome</th>
+					<th class="editar">Editar</th>
+					<th class="excluir">Excluir</th>
 				</tr> 
 
 

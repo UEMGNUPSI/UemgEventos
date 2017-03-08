@@ -12,26 +12,22 @@ if(!isset($_SESSION['usuario']) || $_SESSION['admin'] == false){
 $objBd = new bd();
 $link = $objBd->conecta_mysql();
 
-if(isset($_GET['erro_usuario'])){
-		$erro_usuario = $_GET['erro_usuario'];
+if(isset($_GET['erro_curso'])){
+		$erro_curso = $_GET['erro_curso'];
 }else{
-	$erro_usuario = 0;
+	$erro_curso = 0;
 }
 
-$email = "";
-$senha = "";
-$nome = "";
+$titulo = "";
 
 if(isset($_GET['id'])){
 	$id = $_GET['id'];
 
-	$sql = "SELECT nome, email, senha from usuarios where id = $id ";
+	$sql = "SELECT titulo from cursos where id = $id ";
 	if($resultado_id = mysqli_query($link, $sql)){
 		$dados = mysqli_fetch_array($resultado_id);
-		if(isset($dados['email'])){
-			$email = $dados['email'];
-			$senha = 0;
-			$nome = $dados['nome'];
+		if(isset($dados['titulo'])){
+			$titulo = $dados['titulo'];
 		}
 	}
 
@@ -71,10 +67,10 @@ if(isset($_GET['id'])){
 		<div class="collapse navbar-collapse" id="barra-navegacao">
 		<ul class="nav navbar-nav ">
 	          	<li><a href="eventos.php">Eventos</a></li>
-	          	<li><a href="atividades.php" class="active">Atividades</a></li>
-	          	<li><a href="cursos.php">Cursos</a></li>
+	          	<li><a href="atividades.php">Atividades</a></li>
+	          	<li  class="active"><a href="cursos.php">Cursos</a></li>
 	            <li><a href="categorias.php">Categorias</a></li>
-	            <li class="active"><a href="administradores.php">Novo Administrador</a></li>
+	            <li><a href="administradores.php">Novo Administrador</a></li>
 	            
 	            
 	          </ul>
@@ -88,31 +84,23 @@ if(isset($_GET['id'])){
 <div class="container">
 	<div class="col-md-12">
 		
-		<form method="post" <?php if($id == -1){ echo "action='registrar_adm.php'";}else{ echo "action='atualizar_adm.php?id=".$id."'";} ?> >
+		<form method="post" <?php if($id == -1){ echo "action='registrar_curso.php'";}else{ echo "action='atualizar_curso.php?id=".$id."'";} ?> >
 		<div class="col-md-6">
 		<?php if($id == -1){
-		 echo "<h2>Novo Administrador</h2>";
+		 echo "<h2>Novo Curso</h2>";
 		}else{
-			echo "<h2>Editar Administrador</h2>";
+			echo "<h2>Editar Curso</h2>";
 		}
 		  ?>
 		
 			<div class="form-group">
-				<label for="nome">Nome: </label>
-				<input type="text" id="nome" name="nome" <?php echo "value='$nome'" ?> class="form-control" required="true">
-			</div>
-			<div class="form-group">
-				<label for="email">E-Mail: </label>
-				<input type="email" id="email" name="email" <?php echo "value='$email'" ?> placeholder="" class="form-control" required="true">
-			</div>
-			<div class="form-group">
-				<label for="senha">Senha: </label>
-				<input type="password" id="senha" name="senha" placeholder="De 5 a 20 caracteres" class="form-control" <?php if($senha != 0){ echo "required='true'";} ?> pattern=".{5,20}" >
+				<label for="titulo">Titulo: </label>
+				<input type="text" id="titulo" name="titulo" <?php echo "value='$titulo'" ?> class="form-control" required="true">
 			</div>
 		<button class="btn btn-success"><?php if($id == -1){ echo "Cadastrar";}else{ echo "Atualizar";} ?></button>
 		<?php 
-				if($erro_usuario == 1){
-					echo '<font color=#FF0000>Usuário já existente</font>';
+				if($erro_curso == 1){
+					echo '<font color=#FF0000>Curso já existente</font>';
 				}
 			 ?>
 		</div>

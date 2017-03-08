@@ -3,7 +3,7 @@
 
 session_start();
 
-if(!isset($_SESSION['usuario']) || $_SESSION['admin'] == false){
+if(!isset($_SESSION['usuario']) || $_SESSION['admin'] == 0){
 	header("Location: /UemgEventos/index.php");
 }
 
@@ -13,12 +13,23 @@ require_once('../bd.class.php');
 $objBd = new bd();
 $link = $objBd->conecta_mysql();
 
-if(!isset($_SESSION['usuario'])){
-	$login = 0;
+if(isset($_GET['busca'])){
+	$busca = $_GET['busca'];
 }else{
-	$login = 1;
+	$busca = '';
 }
 
+
+if(isset($_GET['sucesso'])){
+	$sucesso = $_GET['sucesso'];
+}else{
+	$sucesso = 0;
+}
+
+
+$sql = "SELECT titulo, id FROM cursos WHERE titulo LIKE '%".$busca."%'";
+
+$resultado_id = mysqli_query($link, $sql);
 
 ?>
 
@@ -28,7 +39,7 @@ if(!isset($_SESSION['usuario'])){
 	<title>Categorias</title>
 
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="estilo.css">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-custom  navbar-fixed-top">
@@ -51,18 +62,81 @@ if(!isset($_SESSION['usuario'])){
 		<ul class="nav navbar-nav ">
 	          	<li><a href="eventos.php">Eventos</a></li>
 	          	<li><a href="atividades.php" class="active">Atividades</a></li>
-	          	<li  class="active"><a href="cursos.php">Cursos</a></li>
+	          	<li class="active"><a href="cursos.php">Cursos</a></li>
 	            <li><a href="categorias.php">Categorias</a></li>
-	            <li><a href="administradores.php">Novo Administrador</a></li>
-	            
-	            
+	            <li><a href="administradores.php">Administradores</a></li>
 	          </ul>
 		<ul class="nav navbar-nav navbar-right">
-			<?php if($login != 0){?><li><a href="/UemgEventos/sair.php">Sair</a></li> <?php } ?>
+			<li><a href="/UemgEventos/sair.php">Sair</a></li>
 		</ul>
 	</div>
 	</div>
 </nav>
+
+<div class="container">
+	<div class="col-md-12">
+	<?php if($sucesso == 1){echo "<h2>Novo Curso cadastrado com sucesso!</h2>";} ?>
+	<?php if($sucesso == 2){echo "<h2>Curso atualizado com sucesso!</h2>";} ?>
+	<?php if($sucesso == 3){echo "<h2>Curso excluido com sucesso!</h2>";} ?>
+		<h2>Buscar Curso</h2>
+		<div class="col-md-5">
+			<form method="get" action="cursos.php">
+				<input type="text" name="busca" placeholder="Busca" class="form-control" required="true">
+				</div>
+				<div class="col-md-3">
+				<button class="btn btn-success">Buscar</button>
+			</form>
+			<a href="cursos.php" class="btn btn-warning">Limpar Busca</a>
+		</div>
+	</div>
+
+	<div class="col-md-12">
+	<hr>
+		<div class="col-md-10">
+			<h2>Cursos</h2>
+		</div>
+		<div class="col-md-2">
+			<a href="curso.php" class="btn btn-primary" style="margin-top: 20px;">Novo Curso</a>
+		</div>
+
+		<div class="col-md-12">
+			<table border="1">
+				<tr>
+					<th class="nome">Titulo</th>
+					<th class="editar">Editar</th>
+					<th class="excluir">Excluir</th>
+				</tr> 
+
+
+				<?php 
+				if($resultado_id){
+					while($curso = mysqli_fetch_array($resultado_id)){
+						echo '<tr>';
+
+						echo "<td class='nome'>". $curso['titulo'] . '</td>';
+
+						echo "<td class='editar' align='center'> <a class='btn btn-warning' href='curso.php?id=".$curso['id']."'>Editar</a></td>";
+
+						echo "<td class='excluir' align='center'> <button class='btn btn-danger' onclick='confirmar(".$curso['id'].")'>Excluir</button></td>";
+
+						echo '</tr>';
+					}
+				} ?>
+
+			</table>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	function confirmar(id) {
+    var apagar = confirm("Confirma a exclusão?");
+    if (apagar){
+        location.href = 'apagar_curso.php?id='+ id;
+    }   
+}
+</script>
+
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
