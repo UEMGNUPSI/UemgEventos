@@ -19,6 +19,14 @@ if(isset($_GET['busca'])){
 	$busca = '';
 }
 
+
+if(isset($_GET['sucesso'])){
+	$sucesso = $_GET['sucesso'];
+}else{
+	$sucesso = 0;
+}
+
+
 $sql = "SELECT nome, id FROM usuarios WHERE nome LIKE '%".$busca."%' AND admin = 1";
 
 $resultado_id = mysqli_query($link, $sql);
@@ -56,9 +64,7 @@ $resultado_id = mysqli_query($link, $sql);
 	          	<li><a href="atividades.php" class="active">Atividades</a></li>
 	          	<li><a href="cursos.php">Cursos</a></li>
 	            <li><a href="categorias.php">Categorias</a></li>
-	            <li class="active"><a href="administradores.php">Novo Administrador</a></li>
-	            
-	            
+	            <li class="active"><a href="administradores.php">Administradores</a></li>
 	          </ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="/UemgEventos/sair.php">Sair</a></li>
@@ -69,14 +75,18 @@ $resultado_id = mysqli_query($link, $sql);
 
 <div class="container">
 	<div class="col-md-12">
+	<?php if($sucesso == 1){echo "<h2>Novo Administrador cadastrado com sucesso!</h2>";} ?>
+	<?php if($sucesso == 2){echo "<h2>Administrador atualizado com sucesso!</h2>";} ?>
+	<?php if($sucesso == 3){echo "<h2>Administrador excluido com sucesso!</h2>";} ?>
 		<h2>Buscar Administrador</h2>
 		<div class="col-md-5">
 			<form method="get" action="administradores.php">
-				<input type="text" name="busca" placeholder="Busca" class="form-control">
+				<input type="text" name="busca" placeholder="Busca" class="form-control" required="true">
 				</div>
-				<div class="col-md-1">
+				<div class="col-md-3">
 				<button class="btn btn-success">Buscar</button>
 			</form>
+			<a href="administradores.php" class="btn btn-warning">Limpar Busca</a>
 		</div>
 	</div>
 
@@ -86,7 +96,7 @@ $resultado_id = mysqli_query($link, $sql);
 			<h2>Administradores</h2>
 		</div>
 		<div class="col-md-2">
-			<a href="novo_adm.php" class="btn btn-primary" style="margin-top: 20px;">Novo Administrador</a>
+			<a href="adm.php" class="btn btn-primary" style="margin-top: 20px;">Novo Administrador</a>
 		</div>
 
 		<div class="col-md-12">
@@ -105,9 +115,9 @@ $resultado_id = mysqli_query($link, $sql);
 
 						echo "<td class='nome'>". $admin['nome'] . '</td>';
 
-						echo "<td class='editar' align='center'> <a class='btn btn-warning' href='editar_adm.php?".$admin['id']."'>Editar</a></td>";
+						echo "<td class='editar' align='center'> <a class='btn btn-warning' href='adm.php?id=".$admin['id']."'>Editar</a></td>";
 
-						echo "<td class='excluir' align='center'> <a class='btn btn-danger' href='excluir_adm.php?".$admin['id']."'>Excluir</a></td>";
+						echo "<td class='excluir' align='center'> <button class='btn btn-danger' onclick='confirmar(".$admin['id'].")'>Excluir</button></td>";
 
 						echo '</tr>';
 					}
@@ -117,6 +127,15 @@ $resultado_id = mysqli_query($link, $sql);
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+	function confirmar(id) {
+    var apagar = confirm("Confirma a exclusão?");
+    if (apagar){
+        location.href = 'apagar_adm.php?id='+ id;
+    }   
+}
+</script>
 
 
 

@@ -3,15 +3,43 @@
 
 session_start();
 
+require_once('../bd.class.php');
+
 if(!isset($_SESSION['usuario']) || $_SESSION['admin'] == false){
 	header("Location: /UemgEventos/index.php");
 }
 
-
-require_once('../bd.class.php');
-
 $objBd = new bd();
 $link = $objBd->conecta_mysql();
+
+if(isset($_GET['erro_usuario'])){
+	if($_GET['erro_usuario'] == 1)
+		$erro_usuario = 1;
+}else{
+	$erro_usuario = 0;
+}
+
+$email = "";
+$senha = "";
+$nome = "";
+
+if(isset($_GET['id'])){
+	$id = $_GET['id'];
+
+	$sql = "SELECT nome, email, senha from usuarios where id = $id ";
+	if($resultado_id = mysqli_query($link, $sql)){
+		$dados = mysqli_fetch_array($resultado_id);
+		if(isset($dados['email'])){
+			$email = $dados['email'];
+			$senha = 0;
+			$nome = $dados['nome'];
+		}
+	}
+
+}else{
+	$id = -1;
+}
+
 
 
 ?>
@@ -61,22 +89,33 @@ $link = $objBd->conecta_mysql();
 <div class="container">
 	<div class="col-md-12">
 		
-		<form method="post" action="registrar_adm.php">
+		<form method="post" <?php if($id == -1){ echo "action='registrar_adm.php'";}else{ echo "action='atualizar_adm.php?id=".$id."'";} ?> >
 		<div class="col-md-6">
-		<h2>Novo Administrador</h2>
+		<?php if($id == -1){
+		 echo "<h2>Novo Administrador</h2>";
+		}else{
+			echo "<h2>Editar Administrador</h2>";
+		}
+		  ?>
+		
 			<div class="form-group">
 				<label for="nome">Nome: </label>
-				<input type="text" id="nome" name="nome" placeholder="" class="form-control">
+				<input type="text" id="nome" name="nome" <?php echo "value='$nome'" ?> class="form-control" required="true">
 			</div>
 			<div class="form-group">
 				<label for="nome">E-Mail: </label>
-				<input type="text" id="nome" name="nome" placeholder="" class="form-control">
+				<input type="email" id="nome" name="email" <?php echo "value='$email'" ?> placeholder="" class="form-control" required="true">
 			</div>
 			<div class="form-group">
 				<label for="nome">Senha: </label>
-				<input type="text" id="nome" name="nome" placeholder="" class="form-control">
+				<input type="password" id="nome" name="senha" placeholder="De 5 a 20 caracteres" class="form-control" <?php if($senha != 0){ echo "required='true'";} ?> pattern=".{5,20}" >
 			</div>
-		<button class="btn btn-success">Cadastrar</button>
+		<button class="btn btn-success"><?php if($id == -1){ echo "Cadastrar";}else{ echo "Atualizar";} ?></button>
+		<?php 
+				if($erro_usuario == 1){
+					echo '<font color=#FF0000>Usuário já existente</font>';
+				}
+			 ?>
 		</div>
 		</form>
 	</div>
