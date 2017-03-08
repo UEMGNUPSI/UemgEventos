@@ -1,0 +1,19 @@
+body{
+	margin-top: 60px;
+}
+
+table{
+	width:  100%;
+}
+
+td, th{
+	padding: 5px;
+}
+
+.nome{
+	width: 80%;
+}
+
+.editar .excluir{
+	width: 10%;
+}

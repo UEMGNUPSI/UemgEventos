@@ -13,12 +13,15 @@ require_once('../bd.class.php');
 $objBd = new bd();
 $link = $objBd->conecta_mysql();
 
-if(!isset($_SESSION['usuario'])){
-	$login = 0;
+if(isset($_GET['busca'])){
+	$busca = $_GET['busca'];
 }else{
-	$login = 1;
+	$busca = '';
 }
 
+$sql = "SELECT nome, id FROM usuarios WHERE nome LIKE '%".$busca."%' AND admin = 1";
+
+$resultado_id = mysqli_query($link, $sql);
 
 ?>
 
@@ -28,6 +31,7 @@ if(!isset($_SESSION['usuario'])){
 	<title>Categorias</title>
 
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-custom  navbar-fixed-top">
@@ -57,7 +61,7 @@ if(!isset($_SESSION['usuario'])){
 	            
 	          </ul>
 		<ul class="nav navbar-nav navbar-right">
-			<?php if($login != 0){?><li><a href="/UemgEventos/sair.php">Sair</a></li> <?php } ?>
+			<li><a href="/UemgEventos/sair.php">Sair</a></li>
 		</ul>
 	</div>
 	</div>
@@ -65,12 +69,51 @@ if(!isset($_SESSION['usuario'])){
 
 <div class="container">
 	<div class="col-md-12">
-		<div class="col-md-6">
-			<h2>Buscar Administrador</h2>
-			<form>
-				<input type="text" name="busca" placeholder="Busca">
-				<button>Buscar</button>
+		<h2>Buscar Administrador</h2>
+		<div class="col-md-5">
+			<form method="get" action="administradores.php">
+				<input type="text" name="busca" placeholder="Busca" class="form-control">
+				</div>
+				<div class="col-md-1">
+				<button class="btn btn-success">Buscar</button>
 			</form>
+		</div>
+	</div>
+
+	<div class="col-md-12">
+	<hr>
+		<div class="col-md-10">
+			<h2>Administradores</h2>
+		</div>
+		<div class="col-md-2">
+			<a href="novo_adm.php" class="btn btn-primary" style="margin-top: 20px;">Novo Administrador</a>
+		</div>
+
+		<div class="col-md-12">
+			<table border="1">
+				<tr>
+					<th>Nome</th>
+					<th>Editar</th>
+					<th>Excluir</th>
+				</tr> 
+
+
+				<?php 
+				if($resultado_id){
+					while($admin = mysqli_fetch_array($resultado_id)){
+						echo '<tr>';
+
+						echo "<td class='nome'>". $admin['nome'] . '</td>';
+
+						echo "<td class='editar' align='center'> <a class='btn btn-warning' href='editar_adm.php?".$admin['id']."'>Editar</a></td>";
+
+						echo "<td class='excluir' align='center'> <a class='btn btn-danger' href='excluir_adm.php?".$admin['id']."'>Excluir</a></td>";
+
+						echo '</tr>';
+					}
+				} ?>
+
+			</table>
 		</div>
 	</div>
 </div>

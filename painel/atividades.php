@@ -27,6 +27,7 @@ if(!isset($_SESSION['usuario'])){
 	<title>Categorias</title>
 
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-custom navbar-fixed-top">
