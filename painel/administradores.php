@@ -52,7 +52,7 @@ if(!isset($_SESSION['usuario'])){
 	          	<li><a href="atividades.php" class="active">Atividades</a></li>
 	          	<li><a href="cursos.php">Cursos</a></li>
 	            <li><a href="categorias.php">Categorias</a></li>
-	            <li class="active"><a href="novo_adm.php">Novo Administrador</a></li>
+	            <li class="active"><a href="administradores.php">Novo Administrador</a></li>
 	            
 	            
 	          </ul>
@@ -62,5 +62,17 @@ if(!isset($_SESSION['usuario'])){
 	</div>
 	</div>
 </nav>
+
+<div class="container">
+	<div class="col-md-12">
+		<div class="col-md-6">
+			<h2>Buscar Administrador</h2>
+			<form>
+				<input type="text" name="busca" placeholder="Busca">
+				<button>Buscar</button>
+			</form>
+		</div>
+	</div>
+</div>
 </body>
 </html>

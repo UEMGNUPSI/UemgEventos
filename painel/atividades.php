@@ -51,7 +51,7 @@ if(!isset($_SESSION['usuario'])){
 	          	<li class="active"><a href="atividades.php" class="active">Atividades</a></li>
 	          	<li><a href="cursos.php">Cursos</a></li>
 	            <li><a href="categorias.php">Categorias</a></li>
-	            <li><a href="novo_adm.php">Novo Administrador</a></li>
+	            <li><a href="administradores.php">Novo Administrador</a></li>
 	            
 	            
 	          </ul>
