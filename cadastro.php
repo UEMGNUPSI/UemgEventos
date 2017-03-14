@@ -205,7 +205,7 @@ if(isset($_GET['erro_usuario'])){
           <input type="number" id="ano" name="ano" placeholder="Ex: 2017" class="form-control" min="2000" max="2017"  required>
         </div>
 
-         <button class="btn btn-success">Cadastrar</button>  
+         <button class="btn btn-success" style="margin-bottom: 10px;">Cadastrar</button>  
       </form>
       </div>
 
