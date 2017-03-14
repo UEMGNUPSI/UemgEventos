@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `Uemg_Eventos`.`usuarios` (
   `email` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
   `ra` VARCHAR(45) NULL,
-  `turma` VARCHAR(45) NULL,
+  `ano` INT(4) NULL,
   `cpf` VARCHAR(45) NULL,
   `admin` TINYINT(1) NULL,
   `id_curso` INT NULL,
