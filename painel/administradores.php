@@ -42,6 +42,39 @@ $resultado_id = mysqli_query($link, $sql);
 	<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
+<?php 
+  if($sucesso == 1){
+  ?>
+  <div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-lable="Fechar">&times;</button>
+      <strong>Novo Administrador cadastrado com sucesso!</strong> 
+    </div>
+  <?php  
+  }
+
+ ?>
+ <?php 
+  if($sucesso == 2){
+  ?>
+  <div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-lable="Fechar">&times;</button>
+      <strong>Administrador atualizado com sucesso!</strong> 
+    </div>
+  <?php  
+  }
+
+ ?>
+ <?php 
+  if($sucesso == 3){
+  ?>
+  <div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-lable="Fechar">&times;</button>
+      <strong>Administrador excluido com sucesso!</strong> 
+    </div>
+  <?php  
+  }
+
+ ?>
 <nav class="navbar navbar-inverse navbar-custom  navbar-fixed-top">
 	<div class="container">
 
@@ -75,9 +108,6 @@ $resultado_id = mysqli_query($link, $sql);
 
 <div class="container">
 	<div class="col-md-12">
-	<?php if($sucesso == 1){echo "<h2>Novo Administrador cadastrado com sucesso!</h2>";} ?>
-	<?php if($sucesso == 2){echo "<h2>Administrador atualizado com sucesso!</h2>";} ?>
-	<?php if($sucesso == 3){echo "<h2>Administrador excluido com sucesso!</h2>";} ?>
 		<h2>Buscar Administrador</h2>
 		<div class="col-md-5">
 			<form method="get" action="administradores.php">

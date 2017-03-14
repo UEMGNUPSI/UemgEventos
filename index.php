@@ -18,9 +18,21 @@ if(!isset($_SESSION['usuario'])){
 <head>
 	<title></title>
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="estilo.css">
 
 </head>
 <body>
+<?php 
+  if($erro == 2){
+  ?>
+  <div class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Erro ao Logar! </strong> Usuario e(ou) Senha invalido(s)!
+    </div>
+  <?php  
+  }
+
+ ?>
 <form class="modal fade" id="janela" method="post" action="validar_acesso.php">
       <div class="modal-dialog" id='teste'>
         <div class="modal-content">
@@ -43,7 +55,7 @@ if(!isset($_SESSION['usuario'])){
               <label for="senha">Senha</label>
               <input id='senha' type="password" class="form-control red" id="campo_senha" name="senha" maxlength="20"/>
             </div>
-            <?php if($erro == 2){ echo '<font color=#FF0000>Usuario ou senha inválidos</font>'; } ?>
+            
           </div>
 
           <!-- rodape -->

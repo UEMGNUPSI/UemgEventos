@@ -48,6 +48,17 @@ if(isset($_GET['id'])){
 	<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
+<?php 
+  if($erro_curso == 1){
+  ?>
+  <div class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Erro ao Cadastrar! </strong> Curso já existente!
+    </div>
+  <?php  
+  }
+
+ ?>
 <nav class="navbar navbar-inverse navbar-custom  navbar-fixed-top">
 	<div class="container">
 
@@ -70,7 +81,7 @@ if(isset($_GET['id'])){
 	          	<li><a href="atividades.php">Atividades</a></li>
 	          	<li  class="active"><a href="cursos.php">Cursos</a></li>
 	            <li><a href="categorias.php">Categorias</a></li>
-	            <li><a href="administradores.php">Novo Administrador</a></li>
+	            <li><a href="administradores.php">Administradores</a></li>
 	            
 	            
 	          </ul>
@@ -98,11 +109,7 @@ if(isset($_GET['id'])){
 				<input type="text" id="titulo" name="titulo" <?php echo "value='$titulo'" ?> class="form-control" required="true">
 			</div>
 		<button class="btn btn-success"><?php if($id == -1){ echo "Cadastrar";}else{ echo "Atualizar";} ?></button>
-		<?php 
-				if($erro_curso == 1){
-					echo '<font color=#FF0000>Curso já existente</font>';
-				}
-			 ?>
+		
 		</div>
 		</form>
 	</div>

@@ -47,7 +47,7 @@ $link = $objBd->conecta_mysql();
 	          	<li><a href="atividades.php" class="active">Atividades</a></li>
 	          	<li><a href="cursos.php">Cursos</a></li>
 	            <li><a href="categorias.php">Categorias</a></li>
-	            
+	            <li><a href="administradores.php">Administradores</a></li>
 	            
 	            
 	            

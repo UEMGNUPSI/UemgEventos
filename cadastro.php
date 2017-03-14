@@ -30,6 +30,43 @@ if(isset($_GET['erro_usuario'])){
 </head>
 <body>
 
+<?php 
+  if($erro == 2){
+  ?>
+  <div class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Erro ao Logar! </strong> Usuario e(ou) Senha invalido(s)!
+    </div>
+  <?php  
+  }
+
+ ?>
+
+ <?php 
+  if(isset($_GET['sucesso'])){
+  ?>
+  <div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-lable="Fechar">&times;</button>
+      <strong>Usuario registrado com sucesso!</strong> 
+    </div>
+  <?php  
+  }
+
+ ?>
+
+
+ <?php 
+  if($erro_usuario == 1){
+  ?>
+  <div class="alert alert-danger" role="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Erro!</strong> Usuário já existente!
+    </div>
+  <?php  
+  }
+
+ ?>
+
 <form class="modal fade" id="janela" method="post" action="validar_acesso.php">
       <div class="modal-dialog" id='teste'>
         <div class="modal-content">
@@ -97,7 +134,7 @@ if(isset($_GET['erro_usuario'])){
 <div class="container">
 	<div class="col-md-12">
 		
-		  <?php if(isset($_GET['sucesso'])){echo "<h2>Usuario cadastrado com sucesso</h2>";} ?>
+		  <?php  ?>
   		<div class="col-md-6">
   		<h2>Novo Usuario</h2>
 
@@ -172,11 +209,7 @@ if(isset($_GET['erro_usuario'])){
       </form>
       </div>
 
-  		<?php 
-  				if($erro_usuario == 1){
-  					echo '<font color=#FF0000>Usuário já existente</font>';
-  				}
-  			 ?>
+  		
   		</div>
 	</div>
 </div>
