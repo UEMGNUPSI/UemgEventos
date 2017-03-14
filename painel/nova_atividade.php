@@ -78,20 +78,20 @@ $link = $objBd->conecta_mysql();
         </div>
 
         <div class="form-group">
-        <label for="Evento">Evento</label><br>
-        <select name="example">
-   		<option value="A">SELECIONE O EVENTO AQUI</option>
- 	   	<option value="B">B</option>
-    	<option value="-">Other</option>
+    	<form role="form" action="eventos.php" method="post">
+		<div class="form-group">
+		<label for="Evento">Evento:</label>
+		<select class="form-control" name="id_evento" id="id_evento">
+		<option value="1">Exemplo evento 1</option>
 		</select>
-		</div>
+		 </div>
 
         <div class="form-group">
-        <label for="Categoria">Categoria</label><br>
-        <select name="example">
-   		<option value="A">SELECIONE O EVENTO AQUI</option>
- 	   	<option value="B">B</option>
-    	<option value="-">Other</option>
+    	<form role="form" action="categorias.php" method="post">
+		<div class="form-group">
+		<label for="Categorias">Categoria:</label>
+		<select class="form-control" name="id_categoria" id="id_categoria">
+		<option value="1">Exemplo categoria 1</option>
 		</select>
 		</div>
 
