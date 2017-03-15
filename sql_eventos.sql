@@ -20,7 +20,7 @@ USE `Uemg_Eventos` ;
 -- -----------------------------------------------------
 -- Table `Uemg_Eventos`.`categoria`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `Uemg_Eventos`.`categoria` (
+CREATE TABLE IF NOT EXISTS `Uemg_Eventos`.`categorias` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `titulo` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
