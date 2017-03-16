@@ -139,14 +139,14 @@ if(isset($_GET['id'])){
 
            <div class="form-group">
 
-          <label for="data_inicio">Data inicial</label>
+          <label for="data_inicio">Data de Ínicio</label>
           <input type="text" id="data_inicio" name="data_inicio" <?php echo "value='$data_inicio'" ?> class="form-control" required="true">
 
           </div>
 
           <div class="form-group">
 
-          <label for="data_fim">Data término</label>
+          <label for="data_fim">Data de Término</label>
           <input type="text" id="data_fim" name="data_fim" <?php echo "value='$data_fim'" ?> class="form-control" required="true">
 
           </div>

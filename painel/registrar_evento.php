@@ -11,7 +11,7 @@ if(!isset($_SESSION['usuario']) || $_SESSION['admin'] == false){
 
 $titulo = $_POST['titulo'];
 $descricao = $_POST['descricao'];
-$data_inicial = $_POST['data_inicio'];
+$data_inicio = $_POST['data_inicio'];
 $data_fim = $_POST['data_fim'];
 $organizador = $_POST['organizador'];
 $valor = $_POST['valor'];

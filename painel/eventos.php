@@ -27,7 +27,7 @@ if(isset($_GET['sucesso'])){
 }
 
 
-$sql = "SELECT titulo, id FROM eventos WHERE titulo LIKE '%".$busca."%' AND admin = 1";
+$sql = "SELECT titulo, id FROM eventos WHERE titulo LIKE '%".$busca."%'";
 
 $resultado_id = mysqli_query($link, $sql);
 
@@ -144,10 +144,10 @@ $resultado_id = mysqli_query($link, $sql);
 
 				<?php 
 				if($resultado_id){
-					while($admin = mysqli_fetch_array($resultado_id)){
+					while($evento = mysqli_fetch_array($resultado_id)){
 						echo '<tr>';
 
-						echo "<td class='titulo'>". $admin['titulo'] . '</td>';
+						echo "<td class='titulo'>". $evento['titulo'] . '</td>';
 
 						echo "<td class='editar' align='center'> <a class='btn btn-warning' href='evento.php?id=".$evento['id']."'>Editar</a></td>";
 
