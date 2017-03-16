@@ -18,7 +18,7 @@ CREATE SCHEMA IF NOT EXISTS `Uemg_Eventos` DEFAULT CHARACTER SET utf8 COLLATE ut
 USE `Uemg_Eventos` ;
 
 -- -----------------------------------------------------
--- Table `Uemg_Eventos`.`categoria`
+-- Table `Uemg_Eventos`.`categorias`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `Uemg_Eventos`.`categorias` (
   `id` INT NOT NULL AUTO_INCREMENT,
@@ -66,11 +66,11 @@ CREATE TABLE IF NOT EXISTS `Uemg_Eventos`.`atividades` (
   `data_inicio` DATETIME NOT NULL,
   `data_fim` DATETIME NOT NULL,
   `local` VARCHAR(45) NOT NULL,
-  `id_categoria` INT NOT NULL,
+  `id_categorias` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_atividades_categoria_idx` (`id_categoria` ASC),
-  CONSTRAINT `fk_atividades_categoria`
-    FOREIGN KEY (`id_categoria`)
+  INDEX `fk_atividades_categorias_idx` (`id_categorias` ASC),
+  CONSTRAINT `fk_atividades_categorias`
+    FOREIGN KEY (`id_categorias`)
     REFERENCES `Uemg_Eventos`.`categoria` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
