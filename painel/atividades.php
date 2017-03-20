@@ -13,11 +13,21 @@ require_once('../bd.class.php');
 $objBd = new bd();
 $link = $objBd->conecta_mysql();
 
+if(isset($_GET['busca'])){
+	$busca = $_GET['busca'];
+}else{
+	$busca = '';
+}
+
 if(!isset($_SESSION['usuario'])){
 	$login = 0;
 }else{
 	$login = 1;
 }
+
+$sql = "SELECT titulo, id FROM atividades WHERE titulo LIKE '%".$busca."%'";
+
+$resultado_id = mysqli_query($link, $sql);
 
 ?>
 
@@ -27,6 +37,7 @@ if(!isset($_SESSION['usuario'])){
 	<title>Atividades</title>
 
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-custom navbar-fixed-top">
@@ -69,15 +80,15 @@ if(!isset($_SESSION['usuario'])){
 
 <div class="container">
 	<div class="col-md-12">
-		<h2> Buscar </h2>
+		<h2> Buscar Atividade </h2>
 		<div class="col-md-5">
-			<form method="get">
-				<input type="text" name="busca" placeholder="Busca" class="form-control">
+			<form method="get" action="atividades.php">
+				<input type="text" name="busca" placeholder="Busca" class="form-control" required="true">
 				</div>
-				<div class="col-md-1">
+				<div class="col-md-3">
 				<button class="btn btn-success">Buscar</button>
-
 			</form> 
+			<a href="atividades.php" class="btn btn-warning">Limpa Busca</a>
 		</div>
 	</div>
 
@@ -91,18 +102,41 @@ if(!isset($_SESSION['usuario'])){
 		<div class="col-md-2">
 			<a href="nova_atividade.php" a class="btn btn-primary" style="margin-top: 20px;">Nova atividade</a>
 		</div>
-
 <div class="col-md-12">
 			<table class="table table-striped table-bordered table-hover">
 				<tr>
-					<th>Nome</th>
-					<th>Editar</th>
-					<th>Excluir</th>
+					<th class="nome">Título</th>
+					<th class="editar">Editar</th>
+					<th class="excluir">Excluir</th>
 				</tr> 
 
+				<?php
+				if ($resultado_id) {
+					while ($atividade = mysqli_fetch_array($resultado_id)) {
+						echo '<tr>';
+
+						echo "<td class='titulo'>".$atividade['titulo'].'</td>';
+
+						echo "<td class='editar' align='center'> <a class='btn btn-warning' href='atividade.php?id=".$atividade['id']."'>Editar</a></td>";
+
+						echo "<td class='excluir' align='center'> <button class='btn btn-danger' onclick='confirmar(".$atividade['id'].")'>Excluir</button></td>";
+
+						echo '</tr>';
+					}
+				}?>
+			</table>
+		</div>
+	</div>
 </div>
     
-
+<script type="text/javascript">
+	function confirmar(id) {
+    var apagar = confirm("Confirma a exclusão?");
+    if (apagar){
+        location.href = '.php?id='+ id;
+    }   
+}
+</script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
