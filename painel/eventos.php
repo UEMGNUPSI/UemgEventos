@@ -119,7 +119,7 @@ $resultado_id = mysqli_query($link, $sql);
 				<div class="col-md-3">
 				<button class="btn btn-success">Buscar</button>
 			</form>
-			<a href="cursos.php" class="btn btn-warning">Limpar Busca</a>
+			<a href="eventos.php" class="btn btn-warning">Limpar Busca</a>
 		</div>
 	</div>
 
@@ -134,7 +134,7 @@ $resultado_id = mysqli_query($link, $sql);
 
 
 	<div class="col-md-12">
-			<table border="1">
+			<table class="table table-striped table-bordered table-hover">
 				<tr>
 					<th class="nome">Título</th>
 					<th class="editar">Editar</th>

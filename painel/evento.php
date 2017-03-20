@@ -181,9 +181,12 @@ if(isset($_GET['id'])){
 
 
           <button class="btn btn-success"><?php if($id == -1){ echo "Cadastrar";}else{ echo "Atualizar";} ?></button>
-
+          <a class="btn btn-danger" href="/UemgEventos/painel/eventos.php" role="button">Cancelar</a>
+          
          </div> 
         </form>
+
+          
 
         </div>
   </div>

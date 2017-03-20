@@ -132,7 +132,7 @@ $resultado_id = mysqli_query($link, $sql);
 		<div class="col-md-12">
 			<table class="table table-striped table-bordered table-hover">
 				<tr>
-					<th class="nome">Titulo</th>
+					<th class="nome">Título</th>
 					<th class="editar">Editar</th>
 					<th class="excluir">Excluir</th>
 				</tr> 

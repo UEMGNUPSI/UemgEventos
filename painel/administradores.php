@@ -130,7 +130,7 @@ $resultado_id = mysqli_query($link, $sql);
 		</div>
 
 		<div class="col-md-12">
-			<table class = 'table table-hover table table-bordered' >
+			<table class = 'table table-striped table-hover table table-bordered' >
 				<tr>
 					<th class="nome">Nome</th>
 					<th class="editar">Editar</th>

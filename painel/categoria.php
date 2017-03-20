@@ -109,6 +109,7 @@ if(isset($_GET['id'])){
 				<input type="text" id="titulo" name="titulo" <?php echo "value='$titulo'" ?> class="form-control" required="true">
 			</div>
 		<button class="btn btn-success"><?php if($id == -1){ echo "Cadastrar";}else{ echo "Atualizar";} ?></button>
+		<a class="btn btn-danger" href="/UemgEventos/painel/categorias.php" role="button">Cancelar</a>
 		
 		</div>
 		</form>

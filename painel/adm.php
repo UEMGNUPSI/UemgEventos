@@ -121,6 +121,7 @@ if(isset($_GET['id'])){
 				<input type="password" id="senha" name="senha" placeholder="De 5 a 20 caracteres" class="form-control" <?php if($senha != 0){ echo "required='true'";} ?> pattern=".{5,20}" >
 			</div>
 		<button class="btn btn-success"><?php if($id == -1){ echo "Cadastrar";}else{ echo "Atualizar";} ?></button>
+		<a class="btn btn-danger" href="/UemgEventos/painel/administradores.php" role="button">Cancelar</a>
 		
 		</div>
 		</form>
