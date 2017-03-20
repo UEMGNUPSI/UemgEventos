@@ -88,7 +88,7 @@ $resultado_id = mysqli_query($link, $sql);
 				<div class="col-md-3">
 				<button class="btn btn-success">Buscar</button>
 			</form> 
-			<a href="atividades.php" class="btn btn-warning">Limpa Busca</a>
+			<a href="atividades.php" class="btn btn-warning">Limpar Busca</a>
 		</div>
 	</div>
 
