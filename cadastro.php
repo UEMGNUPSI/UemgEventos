@@ -31,7 +31,7 @@ if(isset($_GET['erro_usuario'])){
 <body>
 
 <?php 
-  if($erro == 2){
+  if($erro_usuario == 2){
   ?>
   <div class="alert alert-danger" role="alert">
       <button type="button" class="close" data-dismiss="alert">&times;</button>

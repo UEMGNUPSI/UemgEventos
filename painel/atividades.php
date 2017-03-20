@@ -24,7 +24,7 @@ if(!isset($_SESSION['usuario'])){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Categorias</title>
+	<title>Atividades</title>
 
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 </head>
@@ -93,7 +93,7 @@ if(!isset($_SESSION['usuario'])){
 		</div>
 
 <div class="col-md-12">
-			<table border="1">
+			<table class="table table-striped table-bordered table-hover">
 				<tr>
 					<th>Nome</th>
 					<th>Editar</th>

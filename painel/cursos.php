@@ -36,7 +36,7 @@ $resultado_id = mysqli_query($link, $sql);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Categorias</title>
+	<title>Cursos</title>
 
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="estilo.css">
@@ -130,7 +130,7 @@ $resultado_id = mysqli_query($link, $sql);
 		</div>
 
 		<div class="col-md-12">
-			<table border="1">
+			<table class="table table-striped table-bordered table-hover">
 				<tr>
 					<th class="nome">Titulo</th>
 					<th class="editar">Editar</th>

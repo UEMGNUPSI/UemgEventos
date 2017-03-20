@@ -56,7 +56,7 @@ if(isset($_GET['id'])){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Evento</title>
+	<title>Eventos</title>
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="estilo.css">
 
@@ -101,7 +101,7 @@ if(isset($_GET['id'])){
               
             </ul>
     <ul class="nav navbar-nav navbar-right">
-      <?php if($login != 0){?><li><a href="/UemgEventos/sair.php">Sair</a></li> <?php } ?>
+      <li><a href="/UemgEventos/sair.php">Sair</a></li>
     </ul>
   </div>
   </div>
