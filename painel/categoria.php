@@ -42,7 +42,7 @@ if(isset($_GET['id'])){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Categorias</title>
+	<title>Nova Categoria</title>
 
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="estilo.css">
@@ -105,7 +105,7 @@ if(isset($_GET['id'])){
 		  ?>
 		
 			<div class="form-group">
-				<label for="titulo">Titulo: </label>
+				<label for="titulo">Título: </label>
 				<input type="text" id="titulo" name="titulo" <?php echo "value='$titulo'" ?> class="form-control" required="true">
 			</div>
 		<button class="btn btn-success"><?php if($id == -1){ echo "Cadastrar";}else{ echo "Atualizar";} ?></button>

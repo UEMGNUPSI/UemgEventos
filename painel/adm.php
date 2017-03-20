@@ -46,7 +46,7 @@ if(isset($_GET['id'])){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Categorias</title>
+	<title>Novo Administrador</title>
 
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="estilo.css">

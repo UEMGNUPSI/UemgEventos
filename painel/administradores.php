@@ -36,7 +36,7 @@ $resultado_id = mysqli_query($link, $sql);
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Categorias</title>
+	<title>Administradores</title>
 
 	<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="estilo.css">
