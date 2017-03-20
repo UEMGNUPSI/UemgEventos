@@ -100,7 +100,7 @@ $resultado_id = mysqli_query($link, $sql);
 			<h2>Atividades</h2>
 		</div>
 		<div class="col-md-2">
-			<a href="nova_atividade.php" a class="btn btn-primary" style="margin-top: 20px;">Nova atividade</a>
+			<a href="nova_atividade.php" a class="btn btn-primary" style="margin-top: 20px">Nova atividade</a>
 		</div>
 <div class="col-md-12">
 			<table class="table table-striped table-bordered table-hover">
@@ -123,7 +123,8 @@ $resultado_id = mysqli_query($link, $sql);
 
 						echo '</tr>';
 					}
-				}?>
+				}
+				?>
 			</table>
 		</div>
 	</div>
