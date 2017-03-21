@@ -19,11 +19,13 @@ if(isset($_GET['busca'])){
 	$busca = '';
 }
 
-if(!isset($_SESSION['usuario'])){
-	$login = 0;
+
+if(isset($_GET['sucesso'])){
+	$sucesso = $_GET['sucesso'];
 }else{
-	$login = 1;
+	$sucesso = 0;
 }
+
 
 $sql = "SELECT titulo, id FROM atividades WHERE titulo LIKE '%".$busca."%'";
 
@@ -40,6 +42,42 @@ $resultado_id = mysqli_query($link, $sql);
 	<link rel="stylesheet" type="text/css" href="estilo.css">
 </head>
 <body>
+
+<?php 
+  if($sucesso == 1){
+  ?>
+  <div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-lable="Fechar">&times;</button>
+      <strong>Nova Atividade cadastrada com sucesso!</strong> 
+    </div>
+  <?php  
+  }
+
+ ?>
+ <?php 
+  if($sucesso == 2){
+  ?>
+  <div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-lable="Fechar">&times;</button>
+      <strong>Atividade atualizada com sucesso!</strong> 
+    </div>
+  <?php  
+  }
+
+ ?>
+ <?php 
+ if($sucesso == 3){
+  ?>
+  <div class="alert alert-success" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-lable="Fechar">&times;</button>
+      <strong>Atividade excluída com sucesso!</strong> 
+    </div>
+  <?php  
+  }
+
+ ?>
+
+
 <nav class="navbar navbar-inverse navbar-custom navbar-fixed-top">
 	<div class="container">
 
@@ -67,7 +105,7 @@ $resultado_id = mysqli_query($link, $sql);
 	            
 	          </ul>
 		<ul class="nav navbar-nav navbar-right">
-			<?php if($login != 0){?><li><a href="/UemgEventos/sair.php">Sair</a></li> <?php } ?>
+			<li><a href="/UemgEventos/sair.php">Sair</a></li>
 		</ul>
 
 	</div>
@@ -80,15 +118,15 @@ $resultado_id = mysqli_query($link, $sql);
 
 <div class="container">
 	<div class="col-md-12">
-		<h2> Buscar Atividade </h2>
+		<h2> Buscar </h2>
 		<div class="col-md-5">
-			<form method="get" action="atividades.php">
-				<input type="text" name="busca" placeholder="Busca" class="form-control" required="true">
+			<form method="get">
+				<input type="text" name="busca" placeholder="Busca" class="form-control">
 				</div>
-				<div class="col-md-3">
+				<div class="col-md-1">
 				<button class="btn btn-success">Buscar</button>
+
 			</form> 
-			<a href="atividades.php" class="btn btn-warning">Limpar Busca</a>
 		</div>
 	</div>
 
@@ -100,22 +138,23 @@ $resultado_id = mysqli_query($link, $sql);
 			<h2>Atividades</h2>
 		</div>
 		<div class="col-md-2">
-			<a href="nova_atividade.php" a class="btn btn-primary" style="margin-top: 20px">Nova atividade</a>
+			<a href="atividade.php" a class="btn btn-primary" style="margin-top: 20px;">Nova atividade</a>
 		</div>
+
 <div class="col-md-12">
 			<table class="table table-striped table-bordered table-hover">
 				<tr>
-					<th class="nome">Título</th>
-					<th class="editar">Editar</th>
-					<th class="excluir">Excluir</th>
+					<th>Título</th>
+					<th>Editar</th>
+					<th>Excluir</th>
 				</tr> 
 
-				<?php
-				if ($resultado_id) {
-					while ($atividade = mysqli_fetch_array($resultado_id)) {
+				<?php 
+				if($resultado_id){
+					while($atividade = mysqli_fetch_array($resultado_id)){
 						echo '<tr>';
 
-						echo "<td class='titulo'>".$atividade['titulo'].'</td>';
+						echo "<td class='titulo'>". $atividade['titulo'] . '</td>';
 
 						echo "<td class='editar' align='center'> <a class='btn btn-warning' href='atividade.php?id=".$atividade['id']."'>Editar</a></td>";
 
@@ -123,18 +162,18 @@ $resultado_id = mysqli_query($link, $sql);
 
 						echo '</tr>';
 					}
-				}
-				?>
+				} ?>
+
 			</table>
-		</div>
-	</div>
+
 </div>
     
+
 <script type="text/javascript">
 	function confirmar(id) {
     var apagar = confirm("Confirma a exclusão?");
     if (apagar){
-        location.href = '.php?id='+ id;
+        location.href = 'apagar_atividade.php?id='+ id;
     }   
 }
 </script>
