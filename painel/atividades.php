@@ -123,10 +123,10 @@ $resultado_id = mysqli_query($link, $sql);
 			<form method="get">
 				<input type="text" name="busca" placeholder="Busca" class="form-control">
 				</div>
-				<div class="col-md-1">
+				<div class="col-md-3">
 				<button class="btn btn-success">Buscar</button>
-
-			</form> 
+			</form>
+			<a href="atividades.php" class="btn btn-warning">Limpar Busca</a>
 		</div>
 	</div>
 
@@ -138,7 +138,7 @@ $resultado_id = mysqli_query($link, $sql);
 			<h2>Atividades</h2>
 		</div>
 		<div class="col-md-2">
-			<a href="atividade.php" a class="btn btn-primary" style="margin-top: 20px;">Nova atividade</a>
+			<a href="atividade.php" a class="btn btn-primary" style="margin-top: 20px;">Nova Atividade</a>
 		</div>
 
 <div class="col-md-12">
