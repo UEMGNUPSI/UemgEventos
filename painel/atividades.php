@@ -118,7 +118,7 @@ $resultado_id = mysqli_query($link, $sql);
 
 <div class="container">
 	<div class="col-md-12">
-		<h2> Buscar </h2>
+		<h2> Buscar Atividades</h2>
 		<div class="col-md-5">
 			<form method="get">
 				<input type="text" name="busca" placeholder="Busca" class="form-control">
@@ -144,9 +144,9 @@ $resultado_id = mysqli_query($link, $sql);
 <div class="col-md-12">
 			<table class="table table-striped table-bordered table-hover">
 				<tr>
-					<th>Título</th>
-					<th>Editar</th>
-					<th>Excluir</th>
+					<th class="nome">Título</th>
+					<th class="editar">Editar</th>
+					<th class="excluir">Excluir</th>
 				</tr> 
 
 				<?php 
