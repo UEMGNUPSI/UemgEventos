@@ -98,6 +98,7 @@ $resultado_id = mysqli_query($link, $sql);
 	          	<li class="active"><a href="cursos.php">Cursos</a></li>
 	            <li><a href="categorias.php">Categorias</a></li>
 	            <li><a href="administradores.php">Administradores</a></li>
+	            <li><a href="relatorios.php">Relatórios</a></li>
 	          </ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li><a href="/UemgEventos/sair.php">Sair</a></li>

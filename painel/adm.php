@@ -86,6 +86,7 @@ if(isset($_GET['id'])){
 	          	<li><a href="cursos.php">Cursos</a></li>
 	            <li><a href="categorias.php">Categorias</a></li>
 	            <li class="active"><a href="administradores.php">Administradores</a></li>
+	            <li><a href="relatorios.php">Relatórios</a></li>
 	            
 	            
 	          </ul>
