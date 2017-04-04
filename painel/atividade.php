@@ -122,7 +122,7 @@ if(isset($_GET['id'])){
 <div class="container">
 	<div class="col-md-12">
 		
-	<form method="post" <?php if($id == -1){ echo "action='registrar_atividade.php'";}else{ echo "action='atualizar_atividade.php?id=".$id."'";} ?>>
+	<form method="post" <?php if($id == -1){ echo "action='registrar_atividades.php'";}else{ echo "action='atualizar_atividade.php?id=".$id."'";} ?>>
 		<div class="col-md-6">
 		
 				 <?php if($id == -1){
