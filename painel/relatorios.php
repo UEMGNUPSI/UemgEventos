@@ -13,12 +13,6 @@ require_once('../bd.class.php');
 $objBd = new bd();
 $link = $objBd->conecta_mysql();
 
-if(isset($_GET['busca'])){
-	$busca = $_GET['busca'];
-}else{
-	$busca = '';
-}
-
 
 if(isset($_GET['sucesso'])){
 	$sucesso = $_GET['sucesso'];
@@ -26,10 +20,6 @@ if(isset($_GET['sucesso'])){
 	$sucesso = 0;
 }
 
-
-$sql = "SELECT titulo, id FROM eventos WHERE titulo LIKE '%".$busca."%'";
-
-$resultado_id = mysqli_query($link, $sql);
 
 ?>
 
@@ -94,12 +84,12 @@ $resultado_id = mysqli_query($link, $sql);
 		
 		<div class="collapse navbar-collapse" id="barra-navegacao">
 		<ul class="nav navbar-nav ">
-	          	<li class="active"><a href="eventos.php">Eventos</a></li>
+	          	<li><a href="eventos.php">Eventos</a></li>
 	          	<li><a href="atividades.php" class="active">Atividades</a></li>
 	          	<li><a href="cursos.php">Cursos</a></li>
 	            <li><a href="categorias.php">Categorias</a></li>
 	            <li><a href="administradores.php">Administradores</a></li>
-	            <li><a href="relatorios.php">Relatórios</a></li>
+	            <li class="active"><a href="relatorios.php">Relatórios</a></li>
 	            
 	            
 	          </ul>
@@ -112,52 +102,42 @@ $resultado_id = mysqli_query($link, $sql);
 
 <div class="container">
 	<div class="col-md-12">
-		<h2>Buscar Evento</h2>
-		<div class="col-md-5">
-			<form method="get" action="eventos.php">
-				<input type="text" name="busca" placeholder="Busca" class="form-control" required="true">
-				</div>
-				<div class="col-md-3">
-				<button class="btn btn-success">Buscar</button>
-			</form>
-			<a href="eventos.php" class="btn btn-warning">Limpar Busca</a>
-		</div>
-	</div>
-
-	<div class="col-md-12">
 	<hr>
 		<div class="col-md-10">
-			<h2>Eventos</h2>
-		</div>
-		<div class="col-md-2">
-			<a href="evento.php" class="btn btn-primary" style="margin-top: 20px;">Novo Evento</a>
+			<h2>Relatórios</h2>
 		</div>
 
 
 	<div class="col-md-12">
 			<table class="table table-striped table-bordered table-hover">
 				<tr>
-					<th class="nome">Título</th>
-					<th class="editar">Editar</th>
-					<th class="excluir">Excluir</th>
-				</tr> 
-
-
-				<?php 
-				if($resultado_id){
-					while($evento = mysqli_fetch_array($resultado_id)){
-						echo '<tr>';
-
-						echo "<td class='titulo'>". $evento['titulo'] . '</td>';
-
-						echo "<td class='editar' align='center'> <a class='btn btn-warning' href='evento.php?id=".$evento['id']."'>Editar</a></td>";
-
-						echo "<td class='excluir' align='center'> <button class='btn btn-danger' onclick='confirmar(".$evento['id'].")'>Excluir</button></td>";
-
-						echo '</tr>';
-					}
-				} ?>
-
+					<td class="titulo">Eventos Abertos</td>
+					<td align="center"><button class="btn btn-primary">Gerar</button></td>
+				</tr>
+				<tr>
+					<td class="titulo">Atividades com vagas disponiveis</td>
+					<td align="center"><button class="btn btn-primary">Gerar</button></td>
+				</tr>
+				<tr>
+					<td class="titulo">Atividades com vagas esgotadas</td>
+					<td align="center"><button class="btn btn-primary">Gerar</button></td>
+				</tr>
+				<tr>
+					<td class="titulo">Atividades abertas</td>
+					<td align="center"><button class="btn btn-primary">Gerar</button></td>
+				</tr>
+				<tr>
+					<td class="titulo">Quantidade de participantes no evento</td>
+					<td align="center"><button class="btn btn-primary">Gerar</button></td>
+				</tr>
+				<tr>
+					<td class="titulo">Quantidade de participantes na atividade</td>
+					<td align="center"><button class="btn btn-primary">Gerar</button></td>
+				</tr>
+				<tr>
+					<td class="titulo">Atividade de um evento</td>
+					<td align="center"><button class="btn btn-primary">Gerar</button></td>
+				</tr>
 			</table>
 		</div>
 	</div>
