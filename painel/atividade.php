@@ -20,8 +20,8 @@ if(isset($_GET['erro_atividade'])){
 
 $titulo = "";
 $descricao = "";
-$evento = "";
-$categoria = "";
+$evento_id = "";
+$categoria_id = "";
 $vagas_total = "";
 $vagas_disp = "";
 $ministrante = "";
@@ -41,8 +41,9 @@ if(isset($_GET['id'])){
 
       $titulo = $dados['titulo'];
       $descricao = $dados['descricao'];
-      $evento = $dados['id_evento'];
-      $categoria = $dados['id_categoria'];
+      $evento_id = $dados['id_evento'];
+      $categoria_id = $dados['id_categoria'];
+
       $vagas_total = $dados['vagas_total'];
       $vagas_disp = $dados['vagas_disp'];
       $ministrante = $dados['ministrante'];
@@ -155,7 +156,14 @@ if(isset($_GET['id'])){
             if($resultado_id){
             while($evento = mysqli_fetch_array($resultado_id)){
 
-              echo "<option value='".$evento['id']."'>".$evento['titulo']."</option>";
+              if($evento_id == $evento['id']){
+                echo "<option selected value='".$evento['id']."'>".$evento['titulo']."</option>";
+              }else{
+                echo "<option value='".$evento['id']."'>".$evento['titulo']."</option>";
+              }
+
+
+              
 
             }
           }
@@ -176,7 +184,14 @@ if(isset($_GET['id'])){
             if($resultado_id){
             while($categoria = mysqli_fetch_array($resultado_id)){
 
-              echo "<option value='".$categoria['id']."'>".$categoria['titulo']."</option>";
+              if($categoria_id == $categoria['id']){
+                echo "<option selected value='".$categoria['id']."'>".$categoria['titulo']."</option>";
+              }else{
+                echo "<option value='".$categoria['id']."'>".$categoria['titulo']."</option>";
+              }
+              
+
+
 
             }
           }
