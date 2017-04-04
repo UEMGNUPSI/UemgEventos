@@ -102,11 +102,9 @@ if(isset($_GET['sucesso'])){
 
 <div class="container">
 	<div class="col-md-12">
-	<hr>
 		<div class="col-md-10">
 			<h2>Relatórios</h2>
 		</div>
-
 
 	<div class="col-md-12">
 			<table class="table table-striped table-bordered table-hover">
@@ -127,15 +125,15 @@ if(isset($_GET['sucesso'])){
 					<td align="center"><button class="btn btn-primary">Gerar</button></td>
 				</tr>
 				<tr>
-					<td class="titulo">Quantidade de participantes no evento</td>
+					<td class="titulo">Lista de participantes no evento</td>
 					<td align="center"><button class="btn btn-primary">Gerar</button></td>
 				</tr>
 				<tr>
-					<td class="titulo">Quantidade de participantes na atividade</td>
+					<td class="titulo">Lista de participantes na atividade</td>
 					<td align="center"><button class="btn btn-primary">Gerar</button></td>
 				</tr>
 				<tr>
-					<td class="titulo">Atividade de um evento</td>
+					<td class="titulo">Atividades de um evento</td>
 					<td align="center"><button class="btn btn-primary">Gerar</button></td>
 				</tr>
 			</table>

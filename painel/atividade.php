@@ -237,13 +237,13 @@ if(isset($_GET['id'])){
           <div class="form-group">
                 <label for="local_atividade">Local</label>
                 <input type="text" name="local_atividade" id="local_atividade" <?php echo "value='$local_atividade'" ?> class="form-control" required="true">
-        </div>
+        </div >
 
-        	<button class="btn btn-success"><?php if($id == -1){ echo "Cadastrar";}else{ echo "Atualizar";} ?></button>
-          	<a class="btn btn-danger" href="/UemgEventos/painel/atividades.php" role="button">Cancelar</a>
+        	<button class="btn btn-success" style="margin-bottom: 20px;" ><?php if($id == -1){ echo "Cadastrar";}else{ echo "Atualizar";} ?></button>
+          	<a class="btn btn-danger" style="margin-bottom: 20px;" href="/UemgEventos/painel/atividades.php" role="button">Cancelar</a>
 
-		</div>
-		</form>
+		</div >
+		</form >
 	</div>
 </div>
 
