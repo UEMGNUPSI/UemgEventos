@@ -110,7 +110,10 @@ if(isset($_GET['sucesso'])){
 			<table class="table table-striped table-bordered table-hover">
 				<tr>
 					<td class="titulo">Eventos Abertos</td>
-					<td align="center" style=" width: 200px"><button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></td>
+					<td align="center" style=" width: 200px">
+					<a href="pdfrelatorios.php">
+					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></a></td>
+					
 
 
 
@@ -150,34 +153,6 @@ if(isset($_GET['sucesso'])){
     if (apagar){
         location.href = 'apagar_evento.php?id='+ id;
     }}
-
-    /*function gerar(){
-<?php 
-	include("MPDF57/mpdf.php");
- 
-	$pagina = "
-	 <fieldset>
-	 	<h1>Recibo</h1>
-	 	<p class='center sub-titulo'>
-	 		Nº <strong>0001</strong> - 
-	 		VALOR <strong>R$ 500,00</strong>
-	 	</p>
-	 	<p>Recebi(emos) de <strong>Carlos Domingues Neto</strong></p>
-	 	<p>a quantia de <strong>Quinhentos Reais</strong></p>
-	 	<p>Correspondente a <strong>Serviços prestados ..<strong></p>
-	 	<p>e para clareza firmo(amos) o presente.</p>
-	 	<p class='direita'>São Roque, 25 de Dezembro de 2015</p>
-	 	<p>Assinatura ......................................................................................................................................</p>
-	 	<p>Nome <strong>João da Silva Nogueira</strong> CPF/CNPJ: <strong>222.222.222-02</strong></p>
-	 	<p>Endereço <strong>Rua da Penha, 200 - Jd. Alguma Coisa - São Paulo</strong></p>
-	 </fieldset>";
-	 $arquivo = "cadastro01.pdf";
- 
-	$mpdf =  new mPDF(); 
-	$mpdf -> WriteHTML($pagina);
-	$mpdf -> Output($arquivo,'I');
-	 ?>
-    }*/
 </script>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
