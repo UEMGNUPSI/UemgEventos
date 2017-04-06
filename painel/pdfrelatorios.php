@@ -1,6 +1,9 @@
 <?php
 
 ob_start();
+$html = ob_get_clean();
+
+$html = utf8_encode($html); 
 
 $servidor = "localhost";
 $usuario = "root";
@@ -14,26 +17,36 @@ if(!$conn){
 else{
   //echo '</tr>';
 }
-$id = "1";
-$result_evento = "select * from eventos where id = '$id'";
-$result_usuario = mysqli_query($conn,$result_evento);
-$row_usuario = mysqli_fetch_assoc($result_usuario);
 
-$html = ob_get_clean();
 
-$html = utf8_encode($html);
+$id = "12";
+$result_evento = "select * from eventos where id = '$id' LIMIT 1";
+$resultado_evento = mysqli_query($conn,$result_evento);
+$row_evento = mysqli_fetch_assoc($resultado_evento);
+
+
 
 $html .= 
 "
     <html>
         <body>
-        <h1>Batata quando nasce</h1>
-        id: ".row_usuario['id']."<br>
+        <h1>Eventos abertos</h1>
+        id: ".row_evento['id']."<br>
+        Título: ".row_evento['titulo']."<br>
+        Descrição: ".row_evento['descricao']."<br>
+        Data de início: ".row_evento['data_inicio']."<br>
+        Data do fim: ".row_evento['data_fim']."<br>
+        Organizador: ".row_evento['organizador']."<br>
+        Valor: ".row_evento['valor']."<br>
+        Pagar para: ".row_evento['paga_para']."<br>
 
 
         </body>
     </html>
 ";
+
+
+$arquivo = "Cadastro01.pdf";
 
 include("../mpdf60/mpdf.php");
 
