@@ -141,7 +141,7 @@ if(isset($_GET['id'])){
 
         <div class="form-group">
                 <label for="descricao">Descrição</label>
-                <input type="text" id="descricao" name="descricao" <?php echo "value='$descricao'" ?> class="form-control" required="true">
+                <textarea type="text" id="descricao" rows="5" name="descricao" <?php echo "value='$descricao'" ?> class="form-control" required="true"> </textarea>
         </div>
 
        <div class="form-group">
