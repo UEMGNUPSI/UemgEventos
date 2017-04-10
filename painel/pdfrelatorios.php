@@ -13,15 +13,15 @@
   $html .= '<thead>';
   $html .= '<tr>';
   $html .= '<th>ID</th>';
-  $html .= '<th>Titulo</th>';
-  $html .= '<th>Data inicio</th>';
+  $html .= '<th>Título</th>';
+  $html .= '<th>Data início</th>';
   $html .= '<th>Data fim</th>';
   $html .= '<th>Organizador</th>';
-  $html .= '<th>valor</th>';
+  $html .= '<th>Valor</th>';
   $html .= '<th>Pagar Para</th>';
   $html .= '</tr>';
   $html .= '</thead>';
-  $html .= '<tbody style="text-align: center; background: solid red; font-size: 30px;">';
+  $html .= '<tbody style="text-align: center; background: #E4E4E4; font-size: 17px;">';
   
   $result_evento = "SELECT * FROM eventos";
   $resultado_evento = mysqli_query($conn, $result_evento);
@@ -30,9 +30,9 @@
     $html .= '<td>'.$row_evento['titulo'] . "</td>";
     $html .= '<td>'.$row_evento['data_inicio'] . "</td>";
     $html .= '<td>'.$row_evento['data_fim'] . "</td>";
-    $html .= '<td>'.$row_evento['organizador'] . "</td></tr>";
-    $html .= '<td>'.$row_evento['valor'] . "</td></tr>";
-    $html .= '<td>'.$row_evento['pagar_para'] . "</td></tr>";  
+    $html .= '<td>'.$row_evento['organizador'] . "</td>";
+    $html .= '<td>'.$row_evento['valor'] . "</td>";
+    $html .= '<td>'.$row_evento['pagar_para'] . "</td>";  
   }
   
   $html .= '</tbody>';
@@ -50,7 +50,7 @@
   
   // Carrega seu HTML
   $dompdf->load_html('
-      <h1 style="text-align: center; color =red;">Relatório Eventos</h1>
+      <h1 style="text-align: center; color =red; font-family: arial,helvetica,sans-serif;">Relatório Eventos</h1>
       '. $html .'
     ');
 

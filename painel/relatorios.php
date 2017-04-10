@@ -113,11 +113,8 @@ if(isset($_GET['sucesso'])){
 					<td align="center" style=" width: 200px">
 					<a href="pdfrelatorios.php">
 					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></a></td>
-					
-
-
-
 				</tr>
+				
 				<tr>
 					<td class="titulo">Atividades com vagas disponiveis</td>
 					<td align="center" style=" width: 200px"><button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></td>
