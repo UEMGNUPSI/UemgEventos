@@ -32,8 +32,15 @@
     $html .= '<td>'.$row_evento['organizador'] . "</td>";
     $html .= '<td>'.$row_evento['valor'] . "</td>";
     $html .= '<td>'.$row_evento['pagar_para'] . "</td>";  
+
+   
   }
-  
+
+  <p>
+  	OLÁ
+  </p>
+
+
   $html .= '</tbody>';
   $html .= '</table';
 
