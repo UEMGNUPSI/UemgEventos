@@ -111,17 +111,21 @@ if(isset($_GET['sucesso'])){
 				<tr>
 					<td class="titulo">Eventos Abertos</td>
 					<td align="center" style=" width: 200px">
-					<a href="pdfrelatorios.php">
+					<a href="pdfrelatorios_eventos.php">
 					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></a></td>
 				</tr>
 				
 				<tr>
 					<td class="titulo">Atividades com vagas disponiveis</td>
-					<td align="center" style=" width: 200px"><button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></td>
+					<td align="center" style=" width: 200px">
+					<a href="pdfrelatorios_atividades_disp.php">
+					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></a></td>
 				</tr>
 				<tr>
 					<td class="titulo">Atividades com vagas esgotadas</td>
-					<td align="center" style=" width: 200px"><button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></td>
+					<td align="center" style=" width: 200px">
+					<a href="pdfrelatorios_atividades_esgotadas.php">
+					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></td>
 				</tr>
 				<tr>
 					<td class="titulo">Atividades abertas</td>
