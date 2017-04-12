@@ -21,6 +21,7 @@ if(isset($_GET['sucesso'])){
 }
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -129,15 +130,21 @@ if(isset($_GET['sucesso'])){
 				</tr>
 				<tr>
 					<td class="titulo">Atividades abertas</td>
-					<td align="center" style=" width: 200px"><button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></td>
+					<td align="center" style=" width: 200px">
+					<a href="pdfrelatorios_atividades.php">
+					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></a></td>
 				</tr>
 				<tr>
 					<td class="titulo">Lista de participantes no evento</td>
-					<td align="center" style=" width: 200px"><button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></td>
+					<td align="center" style=" width: 200px">
+					<a href="pdfrelatorios_participante_evento.php">
+					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></a></td>
 				</tr>
 				<tr>
 					<td class="titulo">Lista de participantes na atividade</td>
-					<td align="center" style=" width: 200px"><button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></td>
+					<td align="center" style=" width: 200px">
+					<a href="pdfrelatorios_participante_atividade.php">
+					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></a></td>
 				</tr>
 				<tr>
 					<td class="titulo">Atividades de um evento</td>

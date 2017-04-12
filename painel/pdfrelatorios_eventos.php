@@ -1,12 +1,15 @@
 <?php 
 
+  /*date_default_timezone_set('America/Sao_Paulo');
+  $date = date('Y-m-d H:i');
+  echo $date*/
 
   $servidor = "localhost";
   $usuario = "root";
   $senha = "";
   $dbname = "uemg_eventos";
   
-  //Criar a conexÃ£o
+  //Criar a conexão
   $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
   $html = '<table style="font-family: arial,helvetica,sans-serif;">';  
   $html .= '<thead>';
@@ -22,16 +25,16 @@
   $html .= '</thead>';
   $html .= '<tbody style="text-align: center; background: #E4E4E4; font-size: 17px;">';
   
-  $result_evento = "SELECT * FROM eventos";
+  $result_evento = "SELECT * FROM eventos"; /*Where data_fim < $date*/
   $resultado_evento = mysqli_query($conn, $result_evento);
   while($row_evento = mysqli_fetch_assoc($resultado_evento)){
-    $html .= '<tr><td>'.$row_evento['id'] . "</td>";
-    $html .= '<td>'.$row_evento['titulo'] . "</td>";
-    $html .= '<td>'.$row_evento['data_inicio'] . "</td>";
-    $html .= '<td>'.$row_evento['data_fim'] . "</td>";
-    $html .= '<td>'.$row_evento['organizador'] . "</td>";
-    $html .= '<td>'.$row_evento['valor'] . "</td>";
-    $html .= '<td>'.$row_evento['pagar_para'] . "</td>";  
+    $html .= '<tr style="padding: 8px;"><td>'.$row_evento['id'] . "</td>";
+    $html .= '<td style="padding: 8px;">'.$row_evento['titulo'] . "</td>";
+    $html .= '<td style="padding: 8px;">'.$row_evento['data_inicio'] . "</td>";
+    $html .= '<td style="padding: 8px;">'.$row_evento['data_fim'] . "</td>";
+    $html .= '<td style="padding: 8px;">'.$row_evento['organizador'] . "</td>";
+    $html .= '<td style="padding: 8px;">'.$row_evento['valor'] . "</td>";
+    $html .= '<td style="padding: 8px;">'.$row_evento['pagar_para'] . "</td>";  
   }
   
   $html .= '</tbody>';

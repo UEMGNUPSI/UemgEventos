@@ -1,12 +1,15 @@
 <?php 
 
+  date_default_timezone_set('America/Sao_Paulo');
+  $date = date('Y-m-d H:i');
+  echo $date
 
   $servidor = "localhost";
   $usuario = "root";
   $senha = "";
   $dbname = "uemg_eventos";
   
-  //Criar a conexão
+  //Criar a conexÃ£o
   $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
   $html = '<table style="font-family: arial,helvetica,sans-serif;">';  
   $html .= '<thead>';
@@ -22,7 +25,7 @@
   $html .= '</thead>';
   $html .= '<tbody style="text-align: center; background: #E4E4E4; font-size: 17px;">';
   
-  $result_atividade = "SELECT * FROM atividades WHERE vagas_disp > 0";
+  $result_atividade = "SELECT * FROM usuarios WHERE ";
   $resultado_atividade = mysqli_query($conn, $result_atividade);
   while($row_atividade = mysqli_fetch_assoc($resultado_atividade)){
     $html .= '<tr><td>'.$row_atividade['id'] . "</td>";
