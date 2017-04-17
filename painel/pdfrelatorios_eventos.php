@@ -1,8 +1,8 @@
 <?php 
 
-  /*date_default_timezone_set('America/Sao_Paulo');
+  date_default_timezone_set('America/Sao_Paulo');
   $date = date('Y-m-d H:i');
-  echo $date*/
+  
 
   $servidor = "localhost";
   $usuario = "root";
@@ -25,7 +25,7 @@
   $html .= '</thead>';
   $html .= '<tbody style="text-align: center; background: #E4E4E4; font-size: 17px;">';
   
-  $result_evento = "SELECT * FROM eventos"; /*Where data_fim < $date*/
+  $result_evento = "SELECT * FROM eventos WHERE data_fim < '{$date}'"; /*Where data_fim < $date*/
   $resultado_evento = mysqli_query($conn, $result_evento);
   while($row_evento = mysqli_fetch_assoc($resultado_evento)){
     $html .= '<tr style="padding: 8px;"><td>'.$row_evento['id'] . "</td>";
