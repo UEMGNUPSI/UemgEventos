@@ -25,7 +25,7 @@
   $html .= '</thead>';
   $html .= '<tbody style="text-align: center; background: #E4E4E4; font-size: 17px;">';
   
-  $result_atividade = "SELECT * FROM atividades WHERE data_fim < $date";
+  $result_atividade = "SELECT * FROM atividades WHERE data_fim < '{$date}'";
   $resultado_atividade = mysqli_query($conn, $result_atividade);
   while($row_atividade = mysqli_fetch_assoc($resultado_atividade)){
     $html .= '<tr><td>'.$row_atividade['id'] . "</td>";
