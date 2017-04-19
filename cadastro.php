@@ -19,7 +19,7 @@ if(isset($_GET['erro_usuario'])){
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Categorias</title>
+	<title>Cadastro</title>
 
 	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="estilo.css">
@@ -89,6 +89,8 @@ if(isset($_GET['erro_usuario'])){
               <label for="senha">Senha</label>
               <input id='senha' type="password" class="form-control red" id="campo_senha" name="senha" maxlength="20"/>
             </div>
+
+            
           </div>
 
           <!-- rodape -->
@@ -141,7 +143,8 @@ if(isset($_GET['erro_usuario'])){
       <label style="padding-right: 25px;"><input type="radio" name="tipo" value="aluno" >Aluno</label>
       <label><input type="radio" name="tipo" value="nao-aluno"> Não-Aluno</label>
 
-  		<div id="form-nao-aluno">
+  		
+      <div id="form-nao-aluno">
       <form method="post" action="registrar_usuario.php">
         <div class="form-group">
           <label for="nome">Nome: </label>
@@ -156,7 +159,7 @@ if(isset($_GET['erro_usuario'])){
           <input type="password" id="senha" name="senha" placeholder="De 5 a 20 caracteres" class="form-control" pattern=".{5,20}" required>
         </div>
 
-         <button class="btn btn-success">Cadastrar</button> 
+         <button class="btn btn-success" >Cadastrar</button> 
         </form>  
       </div>
 
@@ -209,7 +212,6 @@ if(isset($_GET['erro_usuario'])){
       </form>
       </div>
 
-  		
   		</div>
 	</div>
 </div>

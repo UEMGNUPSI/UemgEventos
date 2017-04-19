@@ -1,3 +1,695 @@
+/* CSS UEMG Eventos 
+
+Cor UEMG: #3c6e8f;*/
+
 body{
-	margin-top: 60px;
+	margin-top: 50px;
+	background: url(imagens/img01.png);
+	background-attachment: fixed;
+
+	font-family: 'Signika Negative', sans-serif;
+}
+
+label{
+	font-weight: 400;
+}
+
+
+
+/* Navbar */
+
+.navbar-inverse .navbar-nav > li > a{
+	color: #8cc1de;
+
+	outline: none;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover{
+	color: white;
+
+	background: #437899;
+
+	box-shadow: inset 0 -4px 0 #3b617a;
+
+	transition: background 0.5s, color 0.5s, box-shadow 0.5s;
+}
+
+.navbar-inverse .navbar-nav > li > a:focus{
+	outline: none;
+}
+
+.navbar-inverse .navbar-nav > .active > a{
+	color: white;
+
+	user-select: none;
+
+	outline: none;
+
+	background: #3b617a;
+}
+
+.navbar-inverse .navbar-nav > .active > a:hover{
+	color: white;
+
+	background: #3b617a;
+
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover{
+	background: #3b617a; 
+
+	transition: background 0.5s, color 0.5s;
+}
+
+.nav-color{
+	border-bottom: 0px;
+
+	background: rgba(60, 110, 143, 0.96);
+	font-family: 'Alegreya Sans SC', sans-serif;
+	font-size: 16px;
+	color: solid red;
+}
+
+/* Barra de Pesquisa */
+
+/* Classes */
+
+.btn-pesquisa{
+	outline: none;
+	color: #b1b1b1;
+	background: transparent;
+	border: 0px;
+	border-radius: 12px;
+	
+	margin-top: -21px;
+	margin-right: -15px;
+	margin-bottom: -20px;
+	margin-left: -12px;
+}
+
+.btn-pesquisa:hover{
+	color: white;
+	transition: color 0.3s;
+}
+
+.btn-pesquisa:focus{
+	-o-outline: none;
+	outline: none;
+	box-shadow: none;
+}
+
+.input-group-sm > .form-control, .input-group-sm > .input-group-addon, .input-group-sm > .input-group-btn > .btn{
+	border: 0px;
+
+}
+
+.input-group-sm > .form-control{
+	border-radius: 20px;
+
+	margin-right: 0px;
+
+	transition: margin-right 0.5s;
+}
+
+.input-group-sm > .form-control:focus{
+	margin-right: 70px;
+
+	transition: margin-right 0.5s;
+}
+
+.input-group-sm > .input-group-addon{
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+}
+
+/* ID Barra de Pesquisa */
+
+#barra-pesquisa{
+	font-family: 'Signika Negative', sans-serif;
+
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+#icon-pesquisa{
+	font-size: 13px;
+}
+
+/* Dropdown do Usuário */
+
+.dropdown-menu > li > a{
+	font-size: 4mm;
+}
+
+/* Tela de Login */
+.close{
+	outline: none;
+}
+
+.modal-content{
+	border-radius: 0;
+}
+
+.modal-dialog{
+	margin: 60px auto;
+}
+
+.div-login{
+	background: linear-gradient( #fafafa, white 70%, #fafafa);
+}
+
+.btn-custom{
+
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	text-decoration: none;
+	white-space: nowrap;
+	vertical-align: middle;
+	user-select: none;
+
+	touch-action: manipulation;
+	cursor: pointer;
+
+	background-image: none;
+	border: none;
+	border-radius: 13px;
+
+	color: #333;
+}
+
+.btn-custom:focus{
+	outline: none;
+	color: white;
+	text-decoration: none;
+}
+
+.btn-custom:hover{
+	text-decoration: none;
+}
+
+.btn-custom:active{
+	color: white;
+	text-decoration: none;
+}
+
+.btn-custom:visited{
+	color: white;
+	text-decoration: none;
+}
+
+.form-login{
+	border: none;
+	border-bottom: 1px solid #3c6e8f;
+
+	background-color: #f5f8fa;
+
+	display: block;
+	width: 60%;
+	height: 34px;
+	padding: 0 10px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+
+	background-image: none;
+	
+	transition: background-color 0.8s;
+
+}
+
+.form-login:hover{
+	background-color: #eef3f7;
+
+	transition: background-color 0.8s;
+}
+
+.form-login:focus{
+	background-color: #e7eef3;
+
+	transition: background-color 0.8s;
+	outline: none;
+}
+
+.modal-header{
+	border-bottom: 0;
+}
+
+.modal-footer{
+	border-top: 0;
+}
+
+.btn-logar{
+
+	background: #6fa1c3;
+
+	color: white;
+
+	box-shadow: none;
+
+	width: 16%;
+
+	min-width: auto;
+
+	transition: background 0.6s, color 0.6s;
+}
+
+.btn-logar:hover{
+	background: #3c6e90;
+	color: white;
+
+	transition: background 0.6s, color 0.6s;
+}
+
+.btn-logar:active{
+
+	background: #2d536c;
+
+	transition: background 0.6s;
+}
+
+.btn-cancelar{
+	background: none;
+	
+	padding: 4px;
+
+	box-shadow: none;
+
+	width: 16%;
+
+	min-width: auto;
+
+	transition: background 0.3s, color 0.3s, border-color 0.3s;
+
+	border: 2px solid;
+
+	border-color: rgba(0,0,0,0);
+}
+
+.btn-cancelar:hover{
+	
+	border-color: #a1a1a1;
+
+	color: #333;
+
+	background: #fafafa;
+
+	transition: background 0.6s, border-color 0.6s;
+}
+.btn-cancelar:focus{
+	
+	border-color: gray;
+
+	background: #f0f0f0;
+
+	color: #333;
+
+	transition:  border-color 0.6s, background 0.6s;
+}
+
+.btn-cancelar:active{
+	
+	border-color: gray;
+
+	background: #f0f0f0;
+
+	color: #333;
+
+	transition:  border-color 0.6s, background 0.6s;
+}
+
+/* ID Login */
+
+#icon-login{
+	font-size: 15px;
+}
+
+#icon-email-pass{
+	font-size: 12px;
+}
+
+#btn-cadastrar{
+	width: 20%;
+}
+
+/* Carrossel */
+
+/* Classes Carrossel */
+
+.glyphicon-chevron-right::before{
+	content: "\e258";
+}
+
+.glyphicon-chevron-left::before{
+	content: "\e257";
+}
+
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev{
+	font-size: 50px;
+}
+
+.carousel-control.right{
+	background: transparent;
+}
+
+.carousel-control.left{
+	background: transparent;
+}
+
+.img-carousel{
+    width: 100%;
+    min-height: 100%;
+
+   	filter: grayscale(10%);
+
+
+    transition: filter 0.8s;
+}
+
+.img-carousel:hover{
+	filter: grayscale(0%) contrast(110%);
+
+	transition: filter 0.8s;
+}
+
+.carousel-caption{
+	background: rgba(0,0,0,0.2);
+}
+
+.carousel {
+    position: relative;
+    max-width: 1280px;
+    max-height: 500px;
+    margin-bottom: 18px;
+    background: white;
+}
+
+/* IDs Carrossel */
+
+.img-logo{
+	margin-top: -6px;
+	height: 35px;
+	width: 108px;
+	display: block;
+	background: url('imagens/UEMG-logo.png') no-repeat;
+	background-size: contain;
+	color: transparent;
+
+	user-select: none;
+	outline: none;
+}
+
+.form-control:focus{
+	box-shadow: 0 0 0 rgba(0,0,0,0); 
+}
+
+
+/* Atividades */
+
+.titulo{
+	background: white;
+
+	border-bottom: 2px solid #3b617a;
+	border-radius: 2px;
+
+	padding-left: 8px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-left: -5px;
+	margin-bottom: 5px;
+
+}
+
+.div-atividades{
+	float: left;
+	background: white;
+	margin-top: 12px;
+
+	width: 49%;
+
+	padding-bottom: 12px;
+}
+.div-atividades:hover{
+	transform: scale(1.02);
+	transition: transform 0.2s;
+}
+
+.corpo-atividade{
+	background: white;
+
+	padding-top: 10px;
+}
+
+.div-info{
+
+	padding-left: 0;
+}
+
+.div-descricao{
+	background: #f4f4f4;
+
+	margin-top: 10px;
+	margin-left: 0;
+	margin-right: 1px;
+	overflow: auto;
+	height: 89px;
+	word-wrap: break-word;
+}
+
+.img-atividade{
+	background: #f4f4f4;
+
+	max-height: 150px;
+	max-width: 170px;
+
+	text-align: center;
+}
+
+.btn-inscreva{
+	width: 100%;
+
+	/*float: right;*/
+
+	margin-top: 22px;
+
+	background: #3c6e8f;
+
+	color: white;
+
+	transition: background 0.6s, color 0.6s;
+}
+
+.btn-inscreva:hover{
+
+	background: #396079;
+
+	color: white;
+
+	transition: background 0.6s, color 0.6s;
+}
+
+.btn-inscreva:active{
+
+	background: #355569;
+
+	color: white;
+
+	transition: background 0.6s, color 0.6s;
+}
+
+#icon-plus{
+	font-size: 12px;
+}
+
+.div-eventos{
+	float: right;
+
+	margin-bottom: 0;
+
+	background: white;
+
+	margin-top: 12px;
+
+	width: 49%;
+
+	padding-bottom: 12px;
+}
+
+.div-eventos:hover{
+	transform: scale(1.02);
+	transition: transform 0.2s;
+}
+
+#img-nupsi{
+    width: 36%;
+    margin-top: 48px;
+}
+
+#img-uemg{
+    margin-top: 105px;
+    margin-right: 22px;
+    width: 56%;
+    vertical-align: bottom;
+}
+
+.rodape{
+    background: linear-gradient(#3c6e8f,#42647b);
+    color: white;
+    margin-top: 24px;
+    padding-top: 12px;
+    padding-right: 0;
+}
+
+footer a{
+	color: white;
+}
+
+footer a:hover{
+	color: white;
+	text-shadow: 1px 2px 1px #333;
+	text-decoration: none;
+
+}
+
+footer a:focus{
+	color: white;
+	text-shadow: 1px 2px 1px #333;
+	text-decoration: none;
+}
+
+footer p{
+	margin-top: 5px;
+}
+
+/* -------------------------- Carrossel ------------------------------ */
+#destaque{
+   background: rgba(0,0,0,0.7);
+   width: 300px;
+   height: 60px;
+   position: relative;
+   bottom: 75px;
+   left: -320px;
+}
+
+.slides {
+	background: rgba(255, 255, 255, 0.21);
+    padding: 0;
+    width: 100%;
+    height: 420px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.slides input { display: none; }
+
+.slide-container { display: block; }
+
+.slide {
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 420px;
+    display: block;
+    position: absolute;
+
+    transform: translateX(100%);
+    transition: all 800ms cubic-bezier(.4,.07,.14,1.08);
+    transition-timing-function: cubic-bezier(.4,.07,.14,1.08);
+    
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.navi label {
+    width: 145px;
+    height: 100%;
+    display: none;
+    position: absolute;
+
+	opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+
+    color: #FFF;
+    font-size: 122pt;
+    text-align: center;
+    line-height: 380px;
+
+    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+
+    transition: all .4s;
+
+}
+
+.slide:hover + .navi label { opacity: 0.5; }
+
+.navi label:hover { 
+	opacity: 1;
+	transition: all .4s;
+}
+
+.navi .next { right: 0; }
+
+input:checked + .slide-container  .slide {
+    opacity: 1;
+
+    transform: scale(1);
+
+    overflow: hidden;
+
+    /*transition: opacity 1s ease-in-out;*/
+}
+
+input:checked + .slide-container .navi label { display: block; }
+
+.nav-dots {
+	width: 100%;
+	bottom: 9px;
+	height: 11px;
+	display: block;
+	position: absolute;
+	text-align: center;
+}
+
+.nav-dots .nav-dot {
+	top: -5px;
+	width: 30px;
+	height: 5px;
+	margin: 0 4px;
+	position: relative;
+	display: inline-block;
+	background-color: rgba(255, 255, 255, 0.6);
+
+}
+
+.nav-dots .nav-dot:hover {
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+input#img-1:checked ~ .nav-dots label#img-dot-1,
+input#img-2:checked ~ .nav-dots label#img-dot-2,
+input#img-3:checked ~ .nav-dots label#img-dot-3,
+input#img-4:checked ~ .nav-dots label#img-dot-4,
+input#img-5:checked ~ .nav-dots label#img-dot-5,
+input#img-6:checked ~ .nav-dots label#img-dot-6 {
+	background: rgba(255, 255, 255, 1);
 }

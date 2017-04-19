@@ -20,7 +20,7 @@ if($resultado_id = mysqli_query($link, $sql)){
 		$usuario_existe = true;
 	}
 }else{
-	echo "erro ao tentar localizar or egistro de usuario no banco de dados";
+	echo "erro ao tentar localizar o registro de usuario no banco de dados";
 }
 
 if($usuario_existe){
