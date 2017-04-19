@@ -9,26 +9,43 @@
   $senha = "";
   $dbname = "uemg_eventos";
   
+
   //Criar a conexão
   $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
-  $html = '<table style="font-family: arial,helvetica,sans-serif;">';  
-  $html .= '<thead>';
-  $html .= '<tr>';
-  $html .= '<th>ID</th>';
-  $html .= '<th>Título</th>';
-  $html .= '<th>Data início</th>';
-  $html .= '<th>Data fim</th>';
-  $html .= '<th>Organizador</th>';
-  $html .= '<th>Valor</th>';
-  $html .= '<th>Pagar Para</th>';
-  $html .= '</tr>';
-  $html .= '</thead>';
-  $html .= '<tbody style="text-align: center; background: #E4E4E4; font-size: 17px;">';
+  $html = '<style>
+
+    table {
+    border-collapse: collapse;
+    width: 100%;
+
+    }
+    th{
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    tr:nth-child(even){background-color:  #dcdcdc}
+    </style>
+
+  <table style="font-family: arial,helvetica,sans-serif; border: 1px solid; border-radius: 3px; padding: -1px;">
+  <thead>
+      <tr style="background-color: #dcdcdc;">
+      <th>ID</th>
+      <th>Título</th>
+      <th>Data Início</th>
+      <th>Data Fim</th>
+      <th>Organizador</th>
+      <th>Valor</th>
+      <th>Pagar Para</th>
+      </tr>
+  </thead>
+<tbody style="border-top: 1px groove; margin-top: -2px;">';
   
   $result_evento = "SELECT * FROM eventos WHERE data_fim < '{$date}'"; /*Where data_fim < $date*/
   $resultado_evento = mysqli_query($conn, $result_evento);
   while($row_evento = mysqli_fetch_assoc($resultado_evento)){
-    $html .= '<tr style="padding: 8px;"><td>'.$row_evento['id'] . "</td>";
+    $html .= '<tr  style="text-align: center; font-size: 15px; padding: -1px;">';
+    $html .=' <td style="padding: 8px;">'.$row_evento['id'] . "</td>";
     $html .= '<td style="padding: 8px;">'.$row_evento['titulo'] . "</td>";
     $html .= '<td style="padding: 8px;">'.$row_evento['data_inicio'] . "</td>";
     $html .= '<td style="padding: 8px;">'.$row_evento['data_fim'] . "</td>";
@@ -36,9 +53,9 @@
     $html .= '<td style="padding: 8px;">'.$row_evento['valor'] . "</td>";
     $html .= '<td style="padding: 8px;">'.$row_evento['pagar_para'] . "</td>";  
   }
-  
+  $html .= '</tr>';
   $html .= '</tbody>';
-  $html .= '</table';
+  $html .= '</table>';
 
   
   //referenciar o DomPDF com namespace
@@ -52,7 +69,7 @@
   
   // Carrega seu HTML
   $dompdf->load_html('
-      <h1 style="text-align: center; color =red; font-family: arial,helvetica,sans-serif;">Relatório Eventos</h1>
+      <h1 style="text-align: center; color =red; font-family: "Courier New", Courier, monospace;">Relatório Eventos</h1>
       '. $html .'
     ');
 
