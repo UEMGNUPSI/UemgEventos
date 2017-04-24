@@ -17,3 +17,9 @@ td, th{
 .editar .excluir{
 	width: 10%;
 }
+
+.font-face {
+    font-family: 'Signika Negative', sans-serif;
+    font-size: 13px;
+    src: url(https://fonts.googleapis.com/css?family=Signika+Negative:300);
+}

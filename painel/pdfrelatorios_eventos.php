@@ -2,7 +2,8 @@
 
   date_default_timezone_set('America/Sao_Paulo');
   $date = date('Y-m-d H:i');
-  
+  $date_emissao = date('d-m-Y');
+  $hore_emissao = date('H:i');
 
   $servidor = "localhost";
   $usuario = "root";
@@ -24,12 +25,17 @@
         padding-bottom: 6px;
     }
 
-    tr:nth-child(even){background-color:  #dcdcdc}
+    tr:nth-child(even){background-color:  #f9f9f9}
     </style>
 
-  <table style="font-family: arial,helvetica,sans-serif; border: 1px solid; border-radius: 3px; padding: -1px;">
+    <head>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    Dia: '.$date_emissao.'<span style="float:right"> Hora: '.$hore_emissao.'</span>
+    </head>
+
+  <table style="font-size: 14px; border: 1px solid; border-radius: 3px; padding: -1px;" class="font-face">
   <thead>
-      <tr style="background-color: #dcdcdc;">
+      <tr style="background-color: #dcdcdc; text-align: center;">
       <th>ID</th>
       <th>Título</th>
       <th>Data Início</th>
@@ -39,12 +45,12 @@
       <th>Pagar Para</th>
       </tr>
   </thead>
-<tbody style="border-top: 1px groove; margin-top: -2px;">';
+<tbody style="border-top: 1px groove; margin-top: -2px;" class="font-face">';
   
   $result_evento = "SELECT * FROM eventos WHERE data_fim < '{$date}'"; /*Where data_fim < $date*/
   $resultado_evento = mysqli_query($conn, $result_evento);
   while($row_evento = mysqli_fetch_assoc($resultado_evento)){
-    $html .= '<tr  style="text-align: center; font-size: 15px; padding: -1px;">';
+    $html .= '<tr  style="text-align: center; padding: -1px;">';
     $html .=' <td style="padding: 8px;">'.$row_evento['id'] . "</td>";
     $html .= '<td style="padding: 8px;">'.$row_evento['titulo'] . "</td>";
     $html .= '<td style="padding: 8px;">'.$row_evento['data_inicio'] . "</td>";
@@ -53,6 +59,7 @@
     $html .= '<td style="padding: 8px;">'.$row_evento['valor'] . "</td>";
     $html .= '<td style="padding: 8px;">'.$row_evento['pagar_para'] . "</td>";  
   }
+
   $html .= '</tr>';
   $html .= '</tbody>';
   $html .= '</table>';
@@ -69,7 +76,7 @@
   
   // Carrega seu HTML
   $dompdf->load_html('
-      <h1 style="text-align: center; color =red; font-family: "Courier New", Courier, monospace;">Relatório Eventos</h1>
+      <h1 style="font-size: 20px; text-align: center;" class="font-face">Relatório Eventos</h1>
       '. $html .'
     ');
 
