@@ -120,7 +120,7 @@ if(isset($_GET['sucesso'])){
 					<td class="titulo">Atividades com vagas disponiveis</td>
 					<td align="center" style=" width: 200px">
 					<a href="pdfrelatorios_atividades_disp.php">
-					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></a></td>
+					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></td>
 				</tr>
 				<tr>
 					<td class="titulo">Atividades com vagas esgotadas</td>

@@ -30,7 +30,7 @@
 
     <head>
     <link rel="stylesheet" type="text/css" href="estilo.css">
-    Dia: '.$date_emissao.'<span style="float:right"> Hora: '.$hore_emissao.'</span>
+    <span class="font-face">Dia: '.$date_emissao.'</span><span style="float:right" class="font-face"> Hora: '.$hore_emissao.'</span>
     </head>
 
   <table style="font-size: 14px; border: 1px solid; border-radius: 3px; padding: -1px;" class="font-face">

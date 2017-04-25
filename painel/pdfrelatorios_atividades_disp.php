@@ -2,7 +2,8 @@
 
   date_default_timezone_set('America/Sao_Paulo');
   $date = date('Y-m-d H:i');
-  $date_emissao = date('d-m-Y H:i');
+  $date_emissao = date('d-m-Y');
+  $hore_emissao = date('H:i');
 
 
   $servidor = "localhost";
@@ -30,7 +31,7 @@
 
     <head>
     <link rel="stylesheet" type="text/css" href="estilo.css">
-    '.$date_emissao.'
+    <span class="font-face">Dia: '.$date_emissao.'</span><span style="float:right" class="font-face"> Hora: '.$hore_emissao.'</span>
     </head>
 
   <table style="font-size: 14px; border: 1px solid; border-radius: 3px; padding: -1px;" class="font-face">
@@ -47,8 +48,7 @@
   </thead>
 <tbody style="border-top: 1px groove; margin-top: -2px;" class="font-face">';
 
-  
-  $result_atividade = "SELECT * FROM atividades WHERE vagas_disp > 0";
+  $result_atividade = "SELECT * FROM atividades ";
   $resultado_atividade = mysqli_query($conn, $result_atividade);
   while($row_atividade = mysqli_fetch_assoc($resultado_atividade)){
     $html .= '<tr  style="text-align: center; padding: -1px;">';
