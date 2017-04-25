@@ -14,7 +14,8 @@
   
   //Criar a conexão
   $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
-  $html = '<style>
+  $html = '
+  <style>
 
     table {
     border-collapse: collapse;
@@ -30,6 +31,7 @@
     </style>
 
     <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <span class="font-face">Dia: '.$date_emissao.'</span><span style="float:right" class="font-face"> Hora: '.$hore_emissao.'</span>
     </head>
@@ -51,9 +53,9 @@
   $result_atividade = "SELECT * FROM atividades WHERE vagas_disp > 0 ";
   $resultado_atividade = mysqli_query($conn, $result_atividade);
   while($row_atividade = mysqli_fetch_assoc($resultado_atividade)){
-    $html .= '<tr  style="text-align: center; padding: -1px;">';
-    $html .= '<td style="padding: 8px;">'.$row_atividade['id'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_atividade['titulo'] . "</td>";
+    $html .= '<tr  style="text-align: center; padding: -1px; meta charset="UTF-8"">';
+    $html .= '<td style="padding: 8px;">'.UTF8_decode($row_atividade['id']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.UTF8_decode($row_atividade['titulo']) . "</td>";
     $html .= '<td style="padding: 8px;">'.$row_atividade['descricao'] . "</td>";
     $html .= '<td style="padding: 8px;">'.$row_atividade['ministrante'] . "</td>"; 
     $html .= '<td style="padding: 8px;">'.$row_atividade['vagas_disp'] . "</td>"; 
@@ -64,7 +66,7 @@
   
   $html .= '</tr>';
   $html .= '</tbody>';
-  $html .= '</table';
+  $html .= '</table>';
 
   
   //referenciar o DomPDF com namespace
