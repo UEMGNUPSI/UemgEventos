@@ -39,25 +39,26 @@
         <th>ID</th>
         <th>Título</th>
         <th>Descricao</th>
-        <th>Vagas totais</th>
+        <th>Ministrante</th>
         <th>Vagas Disponiveis</th>
-        <th>Data início</th>
-        <th>Data fim</th>
+        <th>Vagas totais</th>
+        <th>Data inicio</th>
       </tr>
   </thead>
 <tbody style="border-top: 1px groove; margin-top: -2px;" class="font-face">';
 
-  $result_atividade = "SELECT * FROM usuarios";
+  $result_atividade = "SELECT * FROM atividades";          //NOTA: Precisa mudar o banco, linha correta : "SELECT * FROM atividades WHERE data_fim < '{$date}'";
   $resultado_atividade = mysqli_query($conn, $result_atividade);
   while($row_atividade = mysqli_fetch_assoc($resultado_atividade)){
     $html .= '<tr  style="text-align: center; padding: -1px;">';
     $html .= '<td style="padding: 8px;">'.$row_atividade['id'] . "</td>";
     $html .= '<td style="padding: 8px;">'.$row_atividade['titulo'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_atividade['descricao'] . "</td>"; 
+    $html .= '<td style="padding: 8px;">'.$row_atividade['descricao'] . "</td>";
+    $html .= '<td style="padding: 8px;">'.$row_atividade['ministrante'] . "</td>"; 
+    $html .= '<td style="padding: 8px;">'.$row_atividade['vagas_disp'] . "</td>"; 
     $html .= '<td style="padding: 8px;">'.$row_atividade['vagas_total'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_atividade['vagas_disp'] . "</td>";  
     $html .= '<td style="padding: 8px;">'.$row_atividade['data_inicio'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_atividade['data_fim'] . "</td>";  
+ 
   }
   
   $html .= '</tr>';

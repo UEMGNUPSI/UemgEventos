@@ -47,7 +47,7 @@
   </thead>
 <tbody style="border-top: 1px groove; margin-top: -2px;" class="font-face">';
   
-  $result_evento = "SELECT * FROM usuarios";
+  $result_evento = "SELECT * FROM eventos"; /*Where data_fim < $date*/
   $resultado_evento = mysqli_query($conn, $result_evento);
   while($row_evento = mysqli_fetch_assoc($resultado_evento)){
     $html .= '<tr  style="text-align: center; padding: -1px;">';
