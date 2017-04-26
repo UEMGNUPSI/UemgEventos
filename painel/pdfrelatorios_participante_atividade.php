@@ -77,7 +77,8 @@
   
   // Carrega seu HTML
   $dompdf->load_html('
-      <h1 style="font-size: 20px; text-align: center;" class="font-face">Relatório Eventos</h1>
+      <img style="float:right; width:20%; height: 20%; top:-20px;" src="../imagens/uemg-frutal.png" /><br>
+      <h1 style="margin-top:50px;font-size: 20px; text-align: center;" class="font-face">Relatório Eventos </h1>
       '. $html .'
     ');
 
