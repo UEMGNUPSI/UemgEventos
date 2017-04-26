@@ -17,7 +17,7 @@ if(isset($_GET['erro_atividade'])){
 }else{
   $erro_atividade = 0;
 }
-
+$atividade_id = "";
 $titulo = "";
 $descricao = "";
 $evento_id = "";
@@ -34,11 +34,12 @@ $local_atividade = "";
 if(isset($_GET['id'])){
   $id = $_GET['id'];
 
-  $sql = "SELECT titulo, descricao, vagas_total, vagas_disp, ministrante, data_inicio, hora_inicio, hora_fim, local_atividade, id_categoria, id_evento from atividades where id = $id ";
+  $sql = "SELECT id, titulo, descricao, vagas_total, vagas_disp, ministrante, data_inicio, hora_inicio, hora_fim, local_atividade, id_categoria, id_evento from atividades where id = $id ";
   if($resultado_id = mysqli_query($link, $sql)){
     $dados = mysqli_fetch_array($resultado_id);
     if(isset($dados['titulo'])){
 
+      $atividade_id = $dados['id'];
       $titulo = $dados['titulo'];
       $descricao = $dados['descricao'];
       $evento_id = $dados['id_evento'];
@@ -51,12 +52,14 @@ if(isset($_GET['id'])){
       $hora_inicio = $dados['hora_inicio'];
       $hora_fim = $dados['hora_fim'];
       $local_atividade = $dados['local_atividade'];
+
     }
   }
 
 }else{
   $id = -1;
 }
+
 
 
 
@@ -161,14 +164,12 @@ if(isset($_GET['id'])){
               }else{
                 echo "<option value='".$evento['id']."'>".$evento['titulo']."</option>";
               }
-
-
-              
-
-            }
+             }
           }
 
            ?>
+
+
           </select>
         </div>
 
