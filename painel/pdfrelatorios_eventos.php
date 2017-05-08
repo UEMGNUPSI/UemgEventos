@@ -51,13 +51,13 @@
   $resultado_evento = mysqli_query($conn, $result_evento);
   while($row_evento = mysqli_fetch_assoc($resultado_evento)){
     $html .= '<tr  style="text-align: center; padding: -1px;">';
-    $html .=' <td style="padding: 8px;">'.$row_evento['id'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_evento['titulo'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_evento['data_inicio'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_evento['data_fim'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_evento['organizador'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_evento['valor'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_evento['pagar_para'] . "</td>";  
+    $html .=' <td style="padding: 8px;">'.utf8_encode($row_evento['id']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_evento['titulo']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_evento['data_inicio']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_evento['data_fim']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_evento['organizador']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_evento['valor']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_evento['pagar_para']) . "</td>";  
   }
 
   $html .= '</tr>';
@@ -67,6 +67,7 @@
   
   //referenciar o DomPDF com namespace
   use Dompdf\Dompdf;
+  use Dompdf\Options;
 
   // include autoloader
   require_once("../dompdf/autoload.inc.php");
@@ -80,6 +81,9 @@
       <h1 style="margin-top:50px;font-size: 20px; text-align: center;" class="font-face">Relatório Eventos </h1>
       '. $html .'
     ');
+
+
+  $dompdf->setPaper('A4', 'portrait');
 
   //Renderizar o html
   $dompdf->render();

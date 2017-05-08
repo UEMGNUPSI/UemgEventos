@@ -135,68 +135,78 @@ if(isset($_GET['sucesso'])){
 					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></a></td>
 				</tr>
 				<tr>
-					<td class="titulo">Lista de participantes no evento</td>				
+					<td class="titulo">Lista de participantes no 
+					<b>Evento</b>:
+          				<select class="form-control" name="evento" required>
+            			<option disabled selected style="display: none;" value="">Selecione</option>
+          				<?php 
+            			$sql = "SELECT titulo, id FROM eventos";
+            			$resultado_id = mysqli_query($link, $sql);
+            			if($resultado_id){
+            			while($evento = mysqli_fetch_array($resultado_id)){
+
+            			  if($evento_id == $evento['id']){
+               				 echo "<option selected value='".$evento['id']."'>".$evento['titulo']."</option>";
+              				}else{
+               				 echo "<option value='".$evento['id']."'>".$evento['titulo']."</option>";
+              				}
+             			}
+          				}
+           				?>
+          				</select>
+					</td>				
 					<td align="center" style=" width: 200px">
 					<a href="pdfrelatorios_participante_evento.php">
 					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></a></td>
 				</tr>
 				<tr>
-					<td class="titulo">Lista de participantes na atividade</td>
+					<td class="titulo">Lista de participantes na 
+					<b>Atividade</b>:
+          				<select class="form-control" name="evento" required>
+            			<option disabled selected style="display: none;" value="">Selecione</option>
+          				<?php 
+            			$sql = "SELECT titulo, id FROM atividades";
+            			$resultado_id = mysqli_query($link, $sql);
+            			if($resultado_id){
+            			while($atividade = mysqli_fetch_array($resultado_id)){
+
+            			  if($atividade_id == $atividade['id']){
+               				 echo "<option selected value='".$atividade['id']."'>".$atividade['titulo']."</option>";
+              				}else{
+               				 echo "<option value='".$atividade['id']."'>".$atividade['titulo']."</option>";
+              				}
+             			}
+          				}
+           				?>
+          				</select>
+					</td>
 					<td align="center" style=" width: 200px">
 					<a href="pdfrelatorios_participante_atividade.php">
 					<button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></a></td>
 				</tr>
 				<tr>
-					<td class="titulo">Atividades de um evento</td>
+					<td class="titulo">Atividades de um
+					 <b>Evento</b>:
+          				<select class="form-control" name="evento" required>
+            			<option disabled selected style="display: none;" value="">Selecione</option>
+          				<?php 
+            			$sql = "SELECT titulo, id FROM eventos";
+            			$resultado_id = mysqli_query($link, $sql);
+            			if($resultado_id){
+            			while($evento = mysqli_fetch_array($resultado_id)){
+
+            			  if($evento_id == $evento['id']){
+               				 echo "<option selected value='".$evento['id']."'>".$evento['titulo']."</option>";
+              				}else{
+               				 echo "<option value='".$evento['id']."'>".$evento['titulo']."</option>";
+              				}
+             			}
+          				}
+           				?>
+          				</select>
+					</td>
 					<td align="center" style=" width: 200px"><button class="btn btn-primary btn-md" style=" width: 100px">Gerar</button></td>
 				</tr>
-
-
-
-					<div class="form-group">
-         			<label>Evento: </label>
-          			<select class="form-control" name="evento" required>
-             		<option disabled selected style="display: none;" value="">Selecione</option>
-          			<?php 
-            		$sql = "SELECT titulo, id FROM eventos";
-
-            		$resultado_id = mysqli_query($link, $sql);
-
-            		if($resultado_id){
-            		while($evento = mysqli_fetch_array($resultado_id)){
-
-              		if($evento_id == $evento['id']){
-                	echo "<option selected value='".$evento['id']."'>".$evento['titulo']."</option>";
-              		}else{
-                	echo "<option value='".$evento['id']."'>".$evento['titulo']."</option>";
-              		}
-             		}
-          			}
-          			?>
-
-
-
-					
-					<div class="form-group">
-         			<label>Atividade: </label>
-          			<select class="form-control" name="atividade" required>
-             		<option disabled selected style="display: none;" value="">Selecione</option>
-          			<?php 
-            		$sql = "SELECT titulo, id FROM atividades";
-
-            		$resultado_id = mysqli_query($link, $sql);
-
-            		if($resultado_id){
-            		while($atividade = mysqli_fetch_array($resultado_id)){
-
-              		if($resultado_id == $atividade['id']){
-                	echo "<option selected value='".$atividade['id']."'>".$atividade['titulo']."</option>";
-              		}else{
-                	echo "<option value='".$atividade['id']."'>".$atividade['titulo']."</option>";
-              		}
-             		}
-          			}
-          			?>
 
 
 

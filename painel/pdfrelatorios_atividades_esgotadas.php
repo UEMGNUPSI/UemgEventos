@@ -52,13 +52,13 @@
   $resultado_atividade = mysqli_query($conn, $result_atividade);
   while($row_atividade = mysqli_fetch_assoc($resultado_atividade)){
     $html .= '<tr  style="text-align: center; padding: -1px;">';
-    $html .= '<td style="padding: 8px;">'.$row_atividade['id'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_atividade['titulo'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_atividade['descricao'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_atividade['ministrante'] . "</td>"; 
-    $html .= '<td style="padding: 8px;">'.$row_atividade['vagas_disp'] . "</td>"; 
-    $html .= '<td style="padding: 8px;">'.$row_atividade['vagas_total'] . "</td>";
-    $html .= '<td style="padding: 8px;">'.$row_atividade['data_inicio'] . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['id']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['titulo']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['descricao']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['ministrante']) . "</td>"; 
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['vagas_disp']) . "</td>"; 
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['vagas_total']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['data_inicio']) . "</td>";
  
   }
   
@@ -79,7 +79,7 @@
   // Carrega seu HTML
   $dompdf->load_html('
       <img style="float:right; width:20%; height: 20%; top:-20px;" src="../imagens/uemg-frutal.png" /><br>
-      <h1 style="margin-top:50px;font-size: 20px; text-align: center;" class="font-face">Relatório Eventos </h1>
+      <h1 style="margin-top:50px;font-size: 20px; text-align: center;" class="font-face">Relatório Atividades Esgotadas </h1>
       '. $html .'
     ');
 
