@@ -54,8 +54,8 @@
   $resultado_atividade = mysqli_query($conn, $result_atividade);
   while($row_atividade = mysqli_fetch_assoc($resultado_atividade)){
     $html .= '<tr  style="text-align: center; padding: -1px; meta charset="UTF-8"">';
-    $html .= '<td style="padding: 8px;">'.utf8_encode(($row_atividade['id']) . "</td>";
-    $html .= '<td style="padding: 8px;">'.utf8_encode(($row_atividade['titulo']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['id']) . "</td>";
+    $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['titulo']) . "</td>";
     $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['descricao']) . "</td>";
     $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['ministrante']) . "</td>"; 
     $html .= '<td style="padding: 8px;">'.utf8_encode($row_atividade['vagas_disp']) . "</td>"; 
