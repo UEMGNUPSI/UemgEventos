@@ -14,9 +14,33 @@ label{
 	font-weight: 400;
 }
 
+a{
+	color: #4da3ff;
+
+	transition: all .2s;
+}
+
+a:hover{
+	color: #1a75d5;
+
+	transition: all .2s;
+}
 
 
 /* Navbar */
+
+.img-logo{
+	background-image: url(imagens/UEMG-Logo.png);
+	background-repeat: no-repeat;
+
+	height: 40px;
+	width: 132px;
+	display: block;
+	background-size: contain;
+	color: transparent;
+
+	margin-top: -9px;
+}
 
 .navbar-inverse .navbar-nav > li > a{
 	color: #8cc1de;
@@ -68,6 +92,17 @@ label{
 	font-family: 'Alegreya Sans SC', sans-serif;
 	font-size: 16px;
 	color: solid red;
+}
+
+.logar{
+	font-family: 'Signika Negative', sans-serif;
+	padding: 12px;
+	width: 400px;
+	padding: 12px;
+}
+
+.div-login{
+	background: linear-gradient( #f0f0f0, white 60%, #ededed);
 }
 
 /* Barra de Pesquisa */
@@ -154,10 +189,6 @@ label{
 	margin: 60px auto;
 }
 
-.div-login{
-	background: linear-gradient( #fafafa, white 70%, #fafafa);
-}
-
 .btn-custom{
 
 	display: inline-block;
@@ -202,11 +233,17 @@ label{
 	text-decoration: none;
 }
 
+.minha-conta{
+	font-size: 14px;
+}
+
 .form-login{
 	border: none;
-	border-bottom: 1px solid #3c6e8f;
+	border-bottom: 1px solid #c4c4c4;
 
 	background-color: #f5f8fa;
+
+	margin-bottom: 12px;
 
 	display: block;
 	width: 60%;
@@ -229,9 +266,15 @@ label{
 }
 
 .form-login:focus{
+
+	
+
+	border-bottom: none;
+
+	box-shadow: inset 0 -2px 0 #4b8ab4;
 	background-color: #e7eef3;
 
-	transition: background-color 0.8s;
+	transition: background-color 0.8s, box-shadow 0.5s, width 0.5s cubic-bezier(.17,.67,.83,.67);
 	outline: none;
 }
 
@@ -275,11 +318,11 @@ label{
 .btn-cancelar{
 	background: none;
 	
-	padding: 4px;
+	padding: 8px;
 
 	box-shadow: none;
 
-	width: 16%;
+	/*width: 16%;*/
 
 	min-width: auto;
 
@@ -336,79 +379,7 @@ label{
 	width: 20%;
 }
 
-/* Carrossel */
-
-/* Classes Carrossel */
-
-.glyphicon-chevron-right::before{
-	content: "\e258";
-}
-
-.glyphicon-chevron-left::before{
-	content: "\e257";
-}
-
-.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev{
-	font-size: 50px;
-}
-
-.carousel-control.right{
-	background: transparent;
-}
-
-.carousel-control.left{
-	background: transparent;
-}
-
-.img-carousel{
-    width: 100%;
-    min-height: 100%;
-
-   	filter: grayscale(10%);
-
-
-    transition: filter 0.8s;
-}
-
-.img-carousel:hover{
-	filter: grayscale(0%) contrast(110%);
-
-	transition: filter 0.8s;
-}
-
-.carousel-caption{
-	background: rgba(0,0,0,0.2);
-}
-
-.carousel {
-    position: relative;
-    max-width: 1280px;
-    max-height: 500px;
-    margin-bottom: 18px;
-    background: white;
-}
-
-/* IDs Carrossel */
-
-.img-logo{
-	margin-top: -6px;
-	height: 35px;
-	width: 108px;
-	display: block;
-	background: url('imagens/UEMG-logo.png') no-repeat;
-	background-size: contain;
-	color: transparent;
-
-	user-select: none;
-	outline: none;
-}
-
-.form-control:focus{
-	box-shadow: 0 0 0 rgba(0,0,0,0); 
-}
-
-
-/* Atividades */
+/* -------------------------------- Atividades -----------------------------------*/
 
 .titulo{
 	background: white;
@@ -422,6 +393,12 @@ label{
 	margin-left: -5px;
 	margin-bottom: 5px;
 
+}
+
+.vagas{
+    float: right;
+    padding-top: 8px;
+    font-size: 17px;
 }
 
 .div-atividades{
@@ -471,8 +448,6 @@ label{
 
 .btn-inscreva{
 	width: 100%;
-
-	/*float: right;*/
 
 	margin-top: 22px;
 
@@ -525,14 +500,16 @@ label{
 }
 
 #img-nupsi{
-    width: 36%;
+    width: 49%;
     margin-top: 48px;
+    margin-right: 13px;
+
 }
 
 #img-uemg{
-    margin-top: 105px;
-    margin-right: 22px;
-    width: 56%;
+    margin-top: 100px;
+    margin-bottom: 4px;
+    width: 46%;
     vertical-align: bottom;
 }
 
@@ -566,130 +543,77 @@ footer p{
 }
 
 /* -------------------------- Carrossel ------------------------------ */
-#destaque{
-   background: rgba(0,0,0,0.7);
-   width: 300px;
-   height: 60px;
-   position: relative;
-   bottom: 75px;
-   left: -320px;
+
+.setas{
+	width: 50%;
+	height: 100%;
 }
 
-.slides {
-	background: rgba(255, 255, 255, 0.21);
-    padding: 0;
-    width: 100%;
-    height: 420px;
-    display: block;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.slides * {
-    user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
-}
-
-.slides input { display: none; }
-
-.slide-container { display: block; }
-
-.slide {
-    top: 0;
-    opacity: 0;
-    width: 100%;
-    height: 420px;
-    display: block;
-    position: absolute;
-
-    transform: translateX(100%);
-    transition: all 800ms cubic-bezier(.4,.07,.14,1.08);
-    transition-timing-function: cubic-bezier(.4,.07,.14,1.08);
-    
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-}
-
-.navi label {
-    width: 145px;
-    height: 100%;
-    display: none;
-    position: absolute;
-
-	opacity: 0;
-    z-index: 9;
-    cursor: pointer;
-
-    color: #FFF;
-    font-size: 122pt;
-    text-align: center;
-    line-height: 380px;
-
-    text-shadow: 0px 0px 15px rgb(119, 119, 119);
-
-    transition: all .4s;
-
-}
-
-.slide:hover + .navi label { opacity: 0.5; }
-
-.navi label:hover { 
-	opacity: 1;
+.banner{
+	width: 100%;
 	transition: all .4s;
 }
 
-.navi .next { right: 0; }
+.banner:hover{
+	filter: brightness(107%);
 
-input:checked + .slide-container  .slide {
-    opacity: 1;
+	opacity: 1;
 
-    transform: scale(1);
 
-    overflow: hidden;
 
-    /*transition: opacity 1s ease-in-out;*/
+	transition: all .5s;
 }
 
-input:checked + .slide-container .navi label { display: block; }
-
-.nav-dots {
-	width: 100%;
-	bottom: 9px;
-	height: 11px;
-	display: block;
+.banner-desc{
 	position: absolute;
+    margin-top: -100px;
+    z-index: 2;
+
+    font-size: 16px;
+
+    width: 100%;
+	padding: 16px 20px 62px 30px;
+	background: rgba(0, 0, 0, 0.46);
+	color: white;
+
 	text-align: center;
+
+	transition: all .5s;
 }
 
-.nav-dots .nav-dot {
-	top: -5px;
-	width: 30px;
-	height: 5px;
-	margin: 0 4px;
-	position: relative;
-	display: inline-block;
-	background-color: rgba(255, 255, 255, 0.6);
-
+.swiper-background{
+	background: hsla(200, 52%, 49%, 0.48);
 }
 
-.nav-dots .nav-dot:hover {
-	cursor: pointer;
-	background-color: rgba(255, 255, 255, 0.8);
+.swiper-background:hover{
+	cursor: grab;
+	cursor: -webkit-grab;
 }
 
-input#img-1:checked ~ .nav-dots label#img-dot-1,
-input#img-2:checked ~ .nav-dots label#img-dot-2,
-input#img-3:checked ~ .nav-dots label#img-dot-3,
-input#img-4:checked ~ .nav-dots label#img-dot-4,
-input#img-5:checked ~ .nav-dots label#img-dot-5,
-input#img-6:checked ~ .nav-dots label#img-dot-6 {
-	background: rgba(255, 255, 255, 1);
+.swiper-background:active{
+	cursor: grabbing;
+	cursor: -webkit-grabbing;
+}
+
+.swiper-pagination-bullet{
+	border-radius: 0%;
+
+	width: 20px;
+    height: 7px;
+}
+
+#destaque{
+	font-family: 'Alegreya Sans SC', sans-serif;
+	letter-spacing: 1px;
+    background: rgba(32, 73, 93, 0.74);
+    padding: 1px 15px;
+    color: white;
+    position: absolute;
+    padding-left: 40px;
+    font-size: 23px;
+    text-transform: uppercase;
+
+    z-index: 2;
+
+    margin-top: 5px;
 }

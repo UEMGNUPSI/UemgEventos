@@ -17,14 +17,16 @@ if(!isset($_SESSION['usuario'])){
 <html>
 <head>
 	<title>UEMG Eventos</title>
-	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="estilo.css">
+
+  <link rel="stylesheet" href="Swiper-3.4.2/dist/css/swiper.css">
 
   <!-- Fonte da Barra de Navegação -->
   <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:700" rel="stylesheet"> 
 
-  <!-- Fonte da Barra de Pesquisa -->
-  <link href="https://fonts.googleapis.com/css?family=Signika+Negative:300" rel="stylesheet">  
+  <!-- Fonte da Barra de Geral -->
+  <link href="https://fonts.googleapis.com/css?family=Signika+Negative:300" rel="stylesheet">
 
 </head>
 <body>
@@ -92,7 +94,7 @@ if(!isset($_SESSION['usuario'])){
 
         <div class="navbar-header">
 
-        <!-- botao toggle-->
+        <!-- botao toggle  <a href='#' data-toggle='modal' data-target='#janela'>entrar</a> -->
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#barra-navegacao">
           <span class="sr-only">alternar navegação</span>
           <span class="icon-bar"></span>
@@ -126,13 +128,9 @@ if(!isset($_SESSION['usuario'])){
       <ul class='dropdown-menu' aria-labelledby='dropdownMenuDivider' >
         <li> <a href='#'>editar</a> </li>
         <li> <a href='#'>minhas atividades</a> </li>
-
         <li role='separator' class='divider'></li>
-
         <li> <a href='sair.php'>sair</a> </li>
-
       </ul>
-
       </li>";}else{ echo "<li><a href='#' data-toggle='modal' data-target='#janela'>entrar</a></li>"; } ?>
 
       </ul>
@@ -141,133 +139,39 @@ if(!isset($_SESSION['usuario'])){
 
 
 </nav>
-<!-- Carrossel -->
+<!-- Carrossel Swiper -->
 <div class="container">
-
-  <ul class="slides">
-    <div id="tooltip">Destaques</div>
-    <input type="radio" name="radio-btn" id="img-1" checked />
-    <li class="slide-container">
-    <div class="slide">
-      <img src="http://farm9.staticflickr.com/8072/8346734966_f9cd7d0941_z.jpg" />
+  <div class="swiper-container swiper-background">
+    <div id="destaque">Destaques</div>
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img class="banner" src="imagens/img02.png">
+          <div class="banner-desc">Semana Calourosa! <a href="#">Saiba Mais</a></div>
         </div>
-    <div class="navi">
-      <label for="img-6" class="prev">&#x2039;</label>
-      <label for="img-2" class="next">&#x203a;</label>
-    </div>
-    </li>
-
-    <input type="radio" name="radio-btn" id="img-2" />
-    <li class="slide-container">
-
-        <div class="slide">
-
-          <img src="imagens/img02.png" />
+        <div class="swiper-slide">
+          <img class="banner" src="imagens/Tamanho-Banner.png">
+          <div class="banner-desc">Tamanho do Banner máximo recomendado.</div>
         </div>
-    <div class="navi">
-      <label for="img-1" class="prev">&#x2039;</label>
-      <label for="img-3" class="next">&#x203a;</label>
+        
     </div>
-    </li>
 
-    <input type="radio" name="radio-btn" id="img-3" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="http://farm9.staticflickr.com/8068/8250438572_d1a5917072_z.jpg" />
-        </div>
-    <div class="navi">
-      <label for="img-2" class="prev">&#x2039;</label>
-      <label for="img-4" class="next">&#x203a;</label>
-    </div>
-    </li>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
 
-    <input type="radio" name="radio-btn" id="img-4" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="http://farm9.staticflickr.com/8061/8237246833_54d8fa37f0_z.jpg" />
-        </div>
-    <div class="navi">
-      <label for="img-3" class="prev">&#x2039;</label>
-      <label for="img-5" class="next">&#x203a;</label>
-    </div>
-    </li>
-
-    <input type="radio" name="radio-btn" id="img-5" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="http://farm9.staticflickr.com/8055/8098750623_66292a35c0_z.jpg" />
-        </div>
-    <div class="navi">
-      <label for="img-4" class="prev">&#x2039;</label>
-      <label for="img-6" class="next">&#x203a;</label>
-    </div>
-    </li>
-
-    <input type="radio" name="radio-btn" id="img-6" />
-    <li class="slide-container">
-        <div class="slide">
-          <img src="http://farm9.staticflickr.com/8195/8098750703_797e102da2_z.jpg" />
-        </div>
-    <div class="navi">
-      <label for="img-5" class="prev">&#x2039;</label>
-      <label for="img-1" class="next">&#x203a;</label>
-    </div>
-    </li>
-
-    <li class="nav-dots">
-      <label for="img-1" class="nav-dot" id="img-dot-1"></label>
-      <label for="img-2" class="nav-dot" id="img-dot-2"></label>
-      <label for="img-3" class="nav-dot" id="img-dot-3"></label>
-      <label for="img-4" class="nav-dot" id="img-dot-4"></label>
-      <label for="img-5" class="nav-dot" id="img-dot-5"></label>
-      <label for="img-6" class="nav-dot" id="img-dot-6"></label>
-    </li>
-</ul>
 </div>
-
-
-<!-- Carrossel 
-<div class="container">
-  <section class="carousel slide" data-ride="carousel">
-  
-    <ol class="carousel-indicators">
-
-      <li data-target="#carrossel" data-slide-to="0" class="active"></li>
-      <li data-target="#carrossel" data-slide-to="1" class="active"></li>
-    </ol>
-
-    <div class="carousel-inner" role="listbox">
-
-      <div class="item active">
-        <img class="img-carousel img-responsive" src="imagens/Tamanho-Banner.png" alt="banner01" align="center">
-      </div>
-
-
-      <div class="item">
-        <img class="img-carousel img-responsive" src="imagens/img02.png" alt="banner02" align="center">
-      </div>
-
-    <a class="left carousel-control" href="#carrossel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carrossel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-
-  </section>
-
-</div> -->
 
 <div class="container">
   <!-- Atividade -->
   <div class="col-xs-5 div-atividades">
-    <div class="col-lg-9"><h3 class="titulo">Atividade</h3></div>
+    <div class="col-lg-9"><h3 class="titulo">Atividade<span class="vagas">30 Vagas</span></h3></div>
     <div class="col-lg-3" style="padding-left: 0; padding-right: 0"><button class="btn-custom btn-inscreva" type="submit"><span id="icon-plus" class="glyphicon glyphicon-plus"></span> Inscreva-se</button></div>
     <div class="row col-lg-12 corpo-atividade">
-      <div class="col-lg-4" style="padding-left: 0"><img class="img-atividade" src="imagens/Exemplo.png"></div>
-      <div class="col-lg-8 " style="padding-left: 25px; padding-right: 0">
+      <div class="col-lg-4" style="padding-left: 0;"><img class="img-atividade" src="imagens/Exemplo.png"></div>
+      <div class="col-lg-8 " style="padding-left: 0; padding-right: 0">
         <h4>Palestra sobre programação orientado a gambiarra</h4>
         <div class="col-lg-6 div-info">
           <p>Data: 17/04/2017</p>
@@ -310,60 +214,35 @@ if(!isset($_SESSION['usuario'])){
     </div>
   </dir>
 
-  <div class="col-xs-5 div-atividades">
-    <div class="col-lg-9"><h3 class="titulo">Atividade</h3></div>
-    <div class="col-lg-3" style="padding-left: 0; padding-right: 0"><button class="btn-custom btn-inscreva" type="submit"><span id="icon-plus" class="glyphicon glyphicon-plus"></span> Inscreva-se</button></div>
-    <div class="row col-lg-12 corpo-atividade">
-      <div class="col-lg-4" style="padding-left: 0"><img class="img-atividade" src="imagens/Exemplo.png"></div>
-      <div class="col-lg-8 " style="padding-left: 25px; padding-right: 0">
-        <h4>Palestra sobre programação orientado a gambiarra</h4>
-        <div class="col-lg-6 div-info">
-          <p>Data: 17/04/2017</p>
-          <p>Palestrante: Juninho Hater Java</p>
-        </div>
-        <div class="col-lg-6 div-info">
-          <p>Horário: 19:00</p>
-          <p>Local: Afiteatro UEMG Unidade Frutal</p>
-        </div>
-      </div>
-    </div>
-    <div class=" row col-lg-12 div-descricao">
-      <h4>Descrição</h4>
-      <p>Nesta palestra você verá de tudo sobre e mais um pouco sobre a mais nova sensação, programação orientado a gambiarra.</p>
-    </div>
-  </div>
-  
-  <dir class=" col-xs-5 div-eventos">
-    <div class="col-lg-9"><h3 class="titulo">Evento</h3></div>
-    <div class="col-lg-3" style="padding-left: 0; padding-right: 0"><button class="btn-custom btn-inscreva" type="submit"><span id="icon-plus" class="glyphicon glyphicon-plus"></span> Ver atividades</button></div>
-    <div class="row col-lg-12 corpo-atividade">
-      <div class="col-lg-4" style="padding-left: 0"><img class="img-atividade" src="imagens/Exemplo.png"></div>
-      <div class="col-lg-8 ">
-        <h4>Semana da viagem no tempo</h4>
-        <div class="col-lg-6 div-info">
-          <p>Data de início: 17/04/2017</p>
-          <p>Data de termino: 17/04/2016</p>
-        </div>
-        <div class="col-lg-6 div-info">
-          <p>Horário: 19:00</p>
-          <p>Local: Afiteatro UEMG Unidade Frutal</p>
-        </div>
-      </div>
-    </div>
-    <div class=" row col-lg-12 div-descricao">
-      <h4>Descrição</h4>
-      <p>Prepare sua mochila para essa aventura do barulho, e lembre-se não toque em nada!</p>
-    </div>
-  </dir>
 </div>
   
 </div>
+
+
+
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="Swiper-3.4.2/dist/js/swiper.min.js"></script>
+
+
+<!-- CARROSSEL -->
+<script>        
+  var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 0,
+        centeredSlides: true,
+        autoplay: 4000,
+        autoplayDisableOnInteraction: false
+  })        
+</script>
+
 </body>
 
 <footer>
